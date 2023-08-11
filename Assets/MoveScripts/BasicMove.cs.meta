@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: f368498b6e9588a46bcfeb152f1d387a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - groundCheck: {instanceID: 0}
+  - rigRef: {instanceID: 0}
+  - prefabDust: {fileID: 131810, guid: fe322dc589f22ea4c9a53291a64020b7, type: 3}
+  - spikeTouchSound: {fileID: 8300000, guid: 80f3321d209b5284a89aef02e45a00ff, type: 3}
+  - jumpSound: {fileID: 8300000, guid: f4720562bddfa714691d0c31c783cef8, type: 3}
+  - ceilHitSound: {instanceID: 0}
+  - bloodSpurt: {fileID: 102438, guid: b9320c72716d2044eaf627138154a26e, type: 3}
+  - bloodStay: {fileID: 191802, guid: 836aafd327e1e9943a62e6bac3a9ff8e, type: 3}
+  executionOrder: -50
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

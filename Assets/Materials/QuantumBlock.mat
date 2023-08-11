@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: QuantumBlock
+  m_Shader: {fileID: 4800000, guid: 40543db2808f3ed49875b50804d6f303, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5e511fbfb2126224a90fc32a3fe16f60, type: 3}
+        m_Scale: {x: 0.125, y: 0.125}
+        m_Offset: {x: 0, y: 0.5}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _AlphaCutoff: 0.01
+    - _B: 0.5
+    - _Brightness: 0
+    - _BumpScale: 1
+    - _ColorMask: 15
+    - _Cutoff: 0.5
+    - _DT: 0.3
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EnableExternalAlpha: 0
+    - _Glossiness: 0.5
+    - _H: 0
+    - _HC: 1
+    - _I: 1
+    - _ICS: 0.2
+    - _Inten: 0.15
+    - _Metallic: 0
+    - _Mode: 0
+    - _OCS: 0.3
+    - _OcclusionStrength: 1
+    - _Open: 0
+    - _PI: 0.5
+    - _Parallax: 0.02
+    - _Rev: 0
+    - _S: 3
+    - _SSP: 1
+    - _SSZ: 0.62831855
+    - _SrcBlend: 1
+    - _T: 0
+    - _TS: 1
+    - _UVSec: 0
+    - _V: 42
+    - _XRes: 48
+    - _ZWrite: 1
+    m_Colors:
+    - _CB: {r: 0, g: 0, b: 0, a: 1}
+    - _CC: {r: 1, g: 1, b: 1, a: 1}
+    - _CL: {r: 0, g: 1, b: 0, a: 1}
+    - _CM: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _CP: {r: 0, g: 1, b: 1, a: 1}
+    - _CR: {r: 1, g: 0, b: 0, a: 1}
+    - _CSB: {r: 0, g: 0, b: 1, a: 1}
+    - _CST: {r: 1, g: 1, b: 0, a: 1}
+    - _CT: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _R: {r: 1, g: 1, b: 0, a: 0}
+    - _Sev: {r: 0.2, g: 0.2, b: 0.2, a: 0}

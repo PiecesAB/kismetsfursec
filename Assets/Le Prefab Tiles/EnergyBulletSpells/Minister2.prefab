@@ -1,0 +1,314 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4139377871725886236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4139377871725886237}
+  - component: {fileID: 4139377871725886234}
+  m_Layer: 0
+  m_Name: AdvancedBulletTest (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4139377871725886237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139377871725886236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4139377872169381340}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4139377871725886234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139377871725886236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 324d8f8604b993d4db391b9bac3fbd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testBullet: {fileID: 102178, guid: 1b71c341baedefb45ba00bfa36c28a4a, type: 3}
+  bulletData:
+    deletTime: 10
+    fadeInTime: 0.01
+    color: {r: 1, g: 0.36320752, b: 0.50966406, a: 1}
+    speed: 30
+    torque: 0
+    acceleration: 0
+    changeInTorque: 0
+    sineMotionSpeed: 0
+    isAccelerationMultiplicative: 0
+    isTorqueSineWave: 0
+    simulationSpeedMult: 1
+    damage: 4
+    customSprite: 1
+    sprite: {fileID: 21300000, guid: 14aa158bdd2219947a20ee27a9531873, type: 3}
+    scale: {x: 32, y: 32}
+    killRadiusRatio: 0.65
+    rotateSprite: 0
+    material: {fileID: 2100000, guid: 18206c0f365cce146a182cd9ba87be78, type: 2}
+    squareHitbox: 0
+    collisionDisabled: 0
+    grazeDisabled: 0
+    destroyOffScreen: 0
+    destroyOnScreenScroll: 0
+    bitToggleOnJump: -1
+  bulletSpecialObject: {fileID: 0}
+  rotateSpecialObject: 0
+  bulletShooterData:
+    numberInCircle: 24
+    offsetRotation: 0
+    offsetRotationAfterPosition: 0
+    polygonSides: 2.5
+    spreadAngle: 180
+    posOffset: {x: 0, y: 0, z: 0}
+    radialStartDistance: 0
+    speedVariation: 0
+    flowerConstant: 1
+    flowerOpenness: 0
+    flowerThetaRangeTimesPi: 0
+  player: {fileID: 0}
+  behavior: 0
+  pattern: 7
+  meshForMeshShot: {fileID: 9127120572191758296, guid: f2ed3d6026b169a4f9a008ccff717227,
+    type: 3}
+  meshShotOffset: {x: 1.5, y: 0, z: 0}
+  meshShotScale: {x: 1, y: 0, z: 1}
+  thisStartsItself: 1
+  thisMakesItsOwnBullets: 1
+  startDelay: 0
+  waitTime: 9999
+  setNumberOfRepeats: 1
+  origNumberOfRepeats: 0
+  startUpAgainAfterAllRepeats: 9999
+  numberOfSuperRepeats: -1
+  shootToRhythm: 0
+  notFollowsBeat: 0
+  startRhythmBeat: 0
+  stopRhythmBeat: 0
+  skipHowManyBeats: 0
+  rainbowBullets: 0
+  behaveData:
+  - 0.2
+  - 0
+  symbolColor: {r: 1, g: 1, b: 1, a: 0}
+  tangibleRenderer: {fileID: 0}
+  dontShootWhenTangRendOffscreen: 1
+  waitUntilTangRendOnscreenToStart: 0
+  randomBitToggle: 0
+  shootFromAllChildPositions: 0
+  shootFromBulletsOfAnother: {fileID: 0}
+  shootFromOtherBulletsStyle: 0
+  shootFromBulletsAddRotation: 0
+  nextInShootSequence: {fileID: 0}
+  moveJustBeforeShot: 0
+  discreteOverlay: {fileID: 0}
+  lastShotTime: 0
+  shooting: 0
+--- !u!1 &4139377872169381343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4139377872169381340}
+  - component: {fileID: 4139377872169381341}
+  m_Layer: 0
+  m_Name: Minister2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4139377872169381340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139377872169381343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2176, y: -664, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4139377872267494966}
+  - {fileID: 4139377871725886237}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4139377872169381341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139377872169381343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822807b4d99d1c74c8f8ca3fe32e78f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  t: 5
+  onlyWhenActive: 1
+  realTime: 0
+  spawnEffectHelper: {fileID: 0}
+  effectMode: 0
+  explodeIfPossible: 0
+  activeC: 0
+--- !u!1 &4139377872267494954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4139377872267494966}
+  - component: {fileID: 4139377872267494955}
+  - component: {fileID: 4139377872267494952}
+  m_Layer: 0
+  m_Name: AdvancedBulletTest (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4139377872267494966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139377872267494954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4139377872169381340}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4139377872267494955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139377872267494954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 324d8f8604b993d4db391b9bac3fbd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testBullet: {fileID: 102178, guid: 1b71c341baedefb45ba00bfa36c28a4a, type: 3}
+  bulletData:
+    deletTime: 10
+    fadeInTime: 0.01
+    color: {r: 1, g: 0.5990566, b: 0.8984205, a: 1}
+    speed: 30
+    torque: 0
+    acceleration: 0
+    changeInTorque: 0
+    sineMotionSpeed: 0
+    isAccelerationMultiplicative: 0
+    isTorqueSineWave: 0
+    simulationSpeedMult: 1
+    damage: 1
+    customSprite: 1
+    sprite: {fileID: 21300000, guid: 9ea6d92f7c2596a4db04ade081b714b2, type: 3}
+    scale: {x: 8, y: 8}
+    killRadiusRatio: 0.75
+    rotateSprite: 0
+    material: {fileID: 2100000, guid: 18206c0f365cce146a182cd9ba87be78, type: 2}
+    squareHitbox: 0
+    collisionDisabled: 0
+    grazeDisabled: 0
+    destroyOffScreen: 0
+    destroyOnScreenScroll: 0
+    bitToggleOnJump: -1
+  bulletSpecialObject: {fileID: 0}
+  rotateSpecialObject: 0
+  bulletShooterData:
+    numberInCircle: 10
+    offsetRotation: 180
+    offsetRotationAfterPosition: 0
+    polygonSides: 2.5
+    spreadAngle: 270
+    posOffset: {x: 0, y: 0, z: 0}
+    radialStartDistance: 0
+    speedVariation: 0
+    flowerConstant: 1
+    flowerOpenness: 0
+    flowerThetaRangeTimesPi: 0
+  player: {fileID: 0}
+  behavior: 0
+  pattern: 1
+  meshForMeshShot: {fileID: 0}
+  meshShotOffset: {x: 0, y: 0, z: 0}
+  meshShotScale: {x: 1, y: 1, z: 1}
+  thisStartsItself: 1
+  thisMakesItsOwnBullets: 1
+  startDelay: 0
+  waitTime: 0.01
+  setNumberOfRepeats: 1
+  origNumberOfRepeats: 0
+  startUpAgainAfterAllRepeats: 0.1
+  numberOfSuperRepeats: 4
+  shootToRhythm: 0
+  notFollowsBeat: 0
+  startRhythmBeat: 0
+  stopRhythmBeat: 0
+  skipHowManyBeats: 0
+  rainbowBullets: 0
+  behaveData:
+  - 0.2
+  - 0
+  symbolColor: {r: 1, g: 1, b: 1, a: 0}
+  tangibleRenderer: {fileID: 0}
+  dontShootWhenTangRendOffscreen: 1
+  waitUntilTangRendOnscreenToStart: 0
+  randomBitToggle: 0
+  shootFromAllChildPositions: 0
+  shootFromBulletsOfAnother: {fileID: 0}
+  shootFromOtherBulletsStyle: 0
+  shootFromBulletsAddRotation: 0
+  nextInShootSequence: {fileID: 0}
+  moveJustBeforeShot: 0
+  discreteOverlay: {fileID: 0}
+  lastShotTime: 0
+  shooting: 0
+--- !u!114 &4139377872267494952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139377872267494954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357d9e10cc7da2c4dacdab64d6f42705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberInCircle: -2
+  bulletSpeed: 10
+  hueShift: -0.02
+  waitMultiplier: 1
+  minWait: 0
+  numberOfRepeats: 0

@@ -1,0 +1,1859 @@
+fileFormatVersion: 2
+guid: 2ce4df65bfdc6f54f9813f80c30d78df
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4163066916094118563
+    second: xerxesInitialTile_0
+  - first:
+      213: -4476809587627216014
+    second: xerxesInitialTile_1
+  - first:
+      213: 218961191921695508
+    second: xerxesInitialTile_2
+  - first:
+      213: 7001761867056864530
+    second: xerxesInitialTile_3
+  - first:
+      213: -6437098136228366927
+    second: xerxesInitialTile_4
+  - first:
+      213: 5617327489190467984
+    second: xerxesInitialTile_5
+  - first:
+      213: 615986470514984936
+    second: xerxesInitialTile_6
+  - first:
+      213: -172350015071496889
+    second: xerxesInitialTile_7
+  - first:
+      213: 1460592425933140040
+    second: xerxesInitialTile_8
+  - first:
+      213: -6989339161290400455
+    second: xerxesInitialTile_9
+  - first:
+      213: -2704890474210001824
+    second: xerxesInitialTile_10
+  - first:
+      213: -4044873473428927996
+    second: xerxesInitialTile_11
+  - first:
+      213: -46585507699946783
+    second: xerxesInitialTile_12
+  - first:
+      213: -1714918209031606834
+    second: xerxesInitialTile_13
+  - first:
+      213: -6829802723363039936
+    second: xerxesInitialTile_14
+  - first:
+      213: -1699746427736365402
+    second: xerxesInitialTile_15
+  - first:
+      213: -193471137567164122
+    second: xerxesInitialTile_16
+  - first:
+      213: -338710581922133292
+    second: xerxesInitialTile_17
+  - first:
+      213: 7919770257535828858
+    second: xerxesInitialTile_18
+  - first:
+      213: 8293821572537952255
+    second: xerxesInitialTile_19
+  - first:
+      213: 4323298286278215402
+    second: xerxesInitialTile_20
+  - first:
+      213: -8840226590373211615
+    second: xerxesInitialTile_21
+  - first:
+      213: 2533437472086940493
+    second: xerxesInitialTile_22
+  - first:
+      213: 313176738680339455
+    second: xerxesInitialTile_23
+  - first:
+      213: -1748829615117086507
+    second: xerxesInitialTile_24
+  - first:
+      213: -1044961907899086017
+    second: xerxesInitialTile_25
+  - first:
+      213: 2994584787300553301
+    second: xerxesInitialTile_26
+  - first:
+      213: -90155769595819363
+    second: xerxesInitialTile_27
+  - first:
+      213: -8163148874440841994
+    second: xerxesInitialTile_28
+  - first:
+      213: 219112848650413959
+    second: xerxesInitialTile_29
+  - first:
+      213: 1544618275071693349
+    second: xerxesInitialTile_30
+  - first:
+      213: -8304913336272797270
+    second: xerxesInitialTile_31
+  - first:
+      213: 7101426361164907611
+    second: xerxesInitialTile_32
+  - first:
+      213: 7830749898357660019
+    second: xerxesInitialTile_33
+  - first:
+      213: 2659072013291695368
+    second: xerxesInitialTile_34
+  - first:
+      213: -2923092387050270116
+    second: xerxesInitialTile_35
+  - first:
+      213: 5204033795668843154
+    second: xerxesInitialTile_36
+  - first:
+      213: -4089401126355846433
+    second: xerxesInitialTile_37
+  - first:
+      213: -2315025082916683508
+    second: xerxesInitialTile_38
+  - first:
+      213: 8701522831599812363
+    second: xerxesInitialTile_39
+  - first:
+      213: -2726950849080866366
+    second: xerxesInitialTile_40
+  - first:
+      213: -2485523590574851036
+    second: xerxesInitialTile_41
+  - first:
+      213: 4519386477626615310
+    second: xerxesInitialTile_42
+  - first:
+      213: -4004870960658311470
+    second: xerxesInitialTile_43
+  - first:
+      213: 3793205439164289452
+    second: xerxesInitialTile_44
+  - first:
+      213: 8299463656561338936
+    second: xerxesInitialTile_45
+  - first:
+      213: -3930129758669767393
+    second: xerxesInitialTile_46
+  - first:
+      213: -2444063657104430207
+    second: xerxesInitialTile_47
+  - first:
+      213: 5048590254836600532
+    second: xerxesInitialTile_48
+  - first:
+      213: 8494563876962938504
+    second: xerxesInitialTile_49
+  - first:
+      213: 427125064084780719
+    second: xerxesInitialTile_50
+  - first:
+      213: -6075302437320861464
+    second: xerxesInitialTile_51
+  - first:
+      213: 119571845696761963
+    second: xerxesInitialTile_52
+  - first:
+      213: 8761072596105697728
+    second: xerxesInitialTile_53
+  - first:
+      213: 9032364596486504021
+    second: xerxesInitialTile_54
+  - first:
+      213: 3413066457236522514
+    second: xerxesInitialTile_55
+  - first:
+      213: -769386526166458451
+    second: xerxesInitialTile_56
+  - first:
+      213: -1533295294286312910
+    second: xerxesInitialTile_57
+  - first:
+      213: -527814862446333770
+    second: xerxesInitialTile_58
+  - first:
+      213: 7470944287517434180
+    second: xerxesInitialTile_59
+  - first:
+      213: 4907484403883960871
+    second: xerxesInitialTile_60
+  - first:
+      213: 5665572204155702213
+    second: xerxesInitialTile_61
+  - first:
+      213: -859261636168410535
+    second: xerxesInitialTile_62
+  - first:
+      213: 3662475993215536505
+    second: xerxesInitialTile_63
+  - first:
+      213: -4111908789690218799
+    second: xerxesInitialTile_64
+  - first:
+      213: -1327269295483729636
+    second: xerxesITile_0
+  - first:
+      213: -8039150857167120709
+    second: xerxesITile_1
+  - first:
+      213: 3056679221885156906
+    second: xerxesITile_2
+  - first:
+      213: 4231790329163836477
+    second: xerxesITile_3
+  - first:
+      213: 2157135356766247623
+    second: xerxesITile_4
+  - first:
+      213: 8573155703867032889
+    second: xerxesITile_5
+  - first:
+      213: -7521148771916918742
+    second: xerxesITile_6
+  - first:
+      213: 2676693867951265518
+    second: xerxesITile_7
+  - first:
+      213: 2597258535848875225
+    second: xerxesITile_8
+  - first:
+      213: -1672341856607036298
+    second: xerxesITile_9
+  - first:
+      213: -4397958486663671373
+    second: xerxesITile_10
+  - first:
+      213: -6137730686110925001
+    second: xerxesITile_11
+  - first:
+      213: -7695682071499029064
+    second: xerxesITile_12
+  - first:
+      213: 5943279299751223338
+    second: xerxesITile_13
+  - first:
+      213: -8611338690551133516
+    second: xerxesITile_14
+  - first:
+      213: 2554761446067506310
+    second: xerxesITile_15
+  - first:
+      213: 966333505956277985
+    second: xerxesITile_16
+  - first:
+      213: 1405508779574652022
+    second: xerxesITile_17
+  - first:
+      213: 9067867469911062281
+    second: xerxesITile_18
+  - first:
+      213: 4185874679940871596
+    second: xerxesITile_19
+  - first:
+      213: 758813297803746937
+    second: xerxesITile_20
+  - first:
+      213: -3993068870835283801
+    second: xerxesITile_21
+  - first:
+      213: -4745716075640538784
+    second: xerxesITile_22
+  - first:
+      213: 1086426046912082449
+    second: xerxesITile_23
+  - first:
+      213: -6256206132807266825
+    second: xerxesITile_24
+  - first:
+      213: 1631853148996416893
+    second: xerxesITile_25
+  - first:
+      213: 5668895618563473815
+    second: xerxesITile_26
+  - first:
+      213: -1108901394103717246
+    second: xerxesITile_27
+  - first:
+      213: -7895524452186274459
+    second: xerxesITile_28
+  - first:
+      213: 1595887905979158220
+    second: xerxesITile_29
+  - first:
+      213: -3403506265003302407
+    second: xerxesITile_30
+  - first:
+      213: -4997478978248869818
+    second: xerxesITile_31
+  - first:
+      213: -3023890429933901424
+    second: xerxesITile_32
+  - first:
+      213: 5483550719943074421
+    second: xerxesITile_33
+  - first:
+      213: -2965447636273667649
+    second: xerxesITile_34
+  - first:
+      213: 8271572330257460337
+    second: xerxesITile_35
+  - first:
+      213: -7069881076798522341
+    second: xerxesITile_36
+  - first:
+      213: 2595920732675690956
+    second: xerxesITile_37
+  - first:
+      213: -1063771835355770369
+    second: xerxesITile_38
+  - first:
+      213: 1432122436523910724
+    second: xerxesITile_39
+  - first:
+      213: 4634339434740248589
+    second: xerxesITile_40
+  - first:
+      213: 832512978685484773
+    second: xerxesITile_41
+  - first:
+      213: -7861508236582919103
+    second: xerxesITile_42
+  - first:
+      213: -8561637577611804990
+    second: xerxesITile_43
+  - first:
+      213: -9113226952048004317
+    second: xerxesITile_44
+  - first:
+      213: -7891488299358022983
+    second: xerxesITile_45
+  - first:
+      213: -1307647456807352891
+    second: xerxesITile_46
+  - first:
+      213: 4863242202447475018
+    second: xerxesITile_47
+  - first:
+      213: -6961524726049040611
+    second: xerxesITile_48
+  - first:
+      213: -733785408969579653
+    second: xerxesITile_49
+  - first:
+      213: -599724872902885081
+    second: xerxesITile_50
+  - first:
+      213: 2472805037314140676
+    second: xerxesITile_51
+  - first:
+      213: 8679306265304673389
+    second: xerxesITile_52
+  - first:
+      213: -7309200627593729055
+    second: xerxesITile_53
+  - first:
+      213: -8357424613339974863
+    second: xerxesITile_54
+  - first:
+      213: 5602190691751807837
+    second: xerxesITile_55
+  - first:
+      213: -4046818792923217480
+    second: xerxesITile_56
+  - first:
+      213: 4493425449433582838
+    second: xerxesITile_57
+  - first:
+      213: -5513371942365777217
+    second: xerxesITile_58
+  - first:
+      213: -6257980442875616975
+    second: xerxesITile_59
+  - first:
+      213: -1535855864506047213
+    second: xerxesITile_60
+  - first:
+      213: -2219041769349175403
+    second: xerxesITile_61
+  - first:
+      213: -798604570923327241
+    second: xerxesITile_62
+  - first:
+      213: -3389000511453965944
+    second: xerxesITile_63
+  - first:
+      213: 3801316353457834076
+    second: xerxesITile_64
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: xerxesITile_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19c861ab97949de0800000000000000
+      internalID: -1327269295483729636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6d6ce73e23f6090800000000000000
+      internalID: -8039150857167120709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e38ccae818b6a20800000000000000
+      internalID: 3056679221885156906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c6eb522e65aba30800000000000000
+      internalID: 4231790329163836477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cadc709d2fafed10800000000000000
+      internalID: 2157135356766247623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935cb1da0b7f9f670800000000000000
+      internalID: 8573155703867032889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20d60b6a038f9790800000000000000
+      internalID: -7521148771916918742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee693b324e6852520800000000000000
+      internalID: 2676693867951265518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d49f13a0e05b0420800000000000000
+      internalID: 2597258535848875225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c9bed11f5aac8e0800000000000000
+      internalID: -1672341856607036298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b15f79ce0057f2c0800000000000000
+      internalID: -4397958486663671373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ff757c57662daa0800000000000000
+      internalID: -6137730686110925001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b545ffede1733590800000000000000
+      internalID: -7695682071499029064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20aa96c805ca7250800000000000000
+      internalID: 5943279299751223338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba4f15f5116e7880800000000000000
+      internalID: -8611338690551133516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_15
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c87bedff5547320800000000000000
+      internalID: 2554761446067506310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eee41d243b196d00800000000000000
+      internalID: 966333505956277985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_17
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c6d3fc9ce518310800000000000000
+      internalID: 1405508779574652022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9077e569b6987dd70800000000000000
+      internalID: 9067867469911062281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca57d2cf7d6371a30800000000000000
+      internalID: 4185874679940871596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97e5f6a8ca8d78a00800000000000000
+      internalID: 758813297803746937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_21
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a85136a405c598c0800000000000000
+      internalID: -3993068870835283801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 069b5928f54d32eb0800000000000000
+      internalID: -4745716075640538784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_23
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1123de8cbb2c31f00800000000000000
+      internalID: 1086426046912082449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd07644bad7d29a0800000000000000
+      internalID: -6256206132807266825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d75b8870bc185a610800000000000000
+      internalID: 1631853148996416893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_26
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7918e3da786fbae40800000000000000
+      internalID: 5668895618563473815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_27
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2823389ae046c90f0800000000000000
+      internalID: -1108901394103717246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565c600d7567d6290800000000000000
+      internalID: -7895524452186274459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_29
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cceca39589bb52610800000000000000
+      internalID: 1595887905979158220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f169a3a51154c0d0800000000000000
+      internalID: -3403506265003302407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_31
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6487ef8d85365aab0800000000000000
+      internalID: -4997478978248869818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 099261cdcabf806d0800000000000000
+      internalID: -3023890429933901424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_33
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5726b02a35c791c40800000000000000
+      internalID: 5483550719943074421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_34
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1e2ef161d98d6d0800000000000000
+      internalID: -2965447636273667649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_35
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c22fea5378ac270800000000000000
+      internalID: 8271572330257460337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1cfa255e9cb2ed90800000000000000
+      internalID: -7069881076798522341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_37
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc1d4301720960420800000000000000
+      internalID: 2595920732675690956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_38
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1dd8fd629bc31f0800000000000000
+      internalID: -1063771835355770369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_39
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446efdfa4cbefd310800000000000000
+      internalID: 1432122436523910724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00f640892b705040800000000000000
+      internalID: 4634339434740248589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_41
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ee537da42ead8b00800000000000000
+      internalID: 832512978685484773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_42
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144eaaf29ef46e290800000000000000
+      internalID: -7861508236582919103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_43
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ceffc21cf3fe2980800000000000000
+      internalID: -8561637577611804990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323b9adfe50578180800000000000000
+      internalID: -9113226952048004317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_45
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b21d9fd33dcb7290800000000000000
+      internalID: -7891488299358022983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_46
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c50e85f09d4adde0800000000000000
+      internalID: -1307647456807352891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_47
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41f19d3405bd7340800000000000000
+      internalID: 4863242202447475018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d179fb83522b36f90800000000000000
+      internalID: -6961524726049040611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_49
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b73e00dee0211d5f0800000000000000
+      internalID: -733785408969579653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_50
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72148a3d7695da7f0800000000000000
+      internalID: -599724872902885081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_51
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ae7e7741b215220800000000000000
+      internalID: 2472805037314140676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_52
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6cae483017137870800000000000000
+      internalID: 8679306265304673389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_53
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eba63841c0809a90800000000000000
+      internalID: -7309200627593729055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_54
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133b3ccf796740c80800000000000000
+      internalID: -8357424613339974863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_55
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5bcdd1a0cafebd40800000000000000
+      internalID: 5602190691751807837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1cf61bfbfc6d7c0800000000000000
+      internalID: -4046818792923217480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_57
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc403a93aadb5e30800000000000000
+      internalID: 4493425449433582838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_58
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2bea4fd619c73b0800000000000000
+      internalID: -5513371942365777217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_59
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131ae0381ff2729a0800000000000000
+      internalID: -6257980442875616975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_60
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315aae18a3b8faae0800000000000000
+      internalID: -1535855864506047213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_61
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597203c84416431e0800000000000000
+      internalID: -2219041769349175403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_62
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0ac1abf59cae4f0800000000000000
+      internalID: -798604570923327241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_63
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8815b239df9d7f0d0800000000000000
+      internalID: -3389000511453965944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xerxesITile_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c58ccbe451df0c430800000000000000
+      internalID: 3801316353457834076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

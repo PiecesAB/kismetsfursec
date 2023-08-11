@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Axe
+  - Spike
+  - Lava
+  - C4
+  - Beam
+  - Indestructible Ground
+  - Sawblade
+  - AutoGun
+  - Wire
+  - AttachableObject
+  - PlatformStand
+  - ExtremeBlood
+  - Death Or Below Wrap Barrier
+  - Above Wrap Barrier
+  - SkyboxCamera
+  - SpeechDummyObject
+  - BossDamageObject
+  - ScriptObjects
+  - SpikeCrusher
+  - Special Tag 1
+  - Particles
+  - DialogueArea
+  - PictCube
+  - Ice
+  - Glue
+  - TextBox
+  - Extra UI Panel
+  - UISound
+  - PlayerPunch
+  - SuperRay
+  - HUD
+  - ElectricWireTileset
+  - GlueSound
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Normal Spikes
+  - Exits
+  - Beams
+  - Wire
+  - SpecialObjects
+  - Bullets
+  - 
+  - BG0
+  - KhalGunSubtractiveStopper
+  - 
+  - Punch
+  - Player
+  - DanmakuHitbox
+  - Laser
+  - NonCollideWithOtherBlox
+  - 
+  - BulletsPhase
+  - 
+  - 
+  - BGCollision
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Perm
+    uniqueID: 2500194039
+    locked: 0
+  - name: BG1
+    uniqueID: 1922531871
+    locked: 0
+  - name: BG2
+    uniqueID: 273266797
+    locked: 0
+  - name: BG3
+    uniqueID: 1869956823
+    locked: 0
+  - name: MG
+    uniqueID: 1152849651
+    locked: 0
+  - name: FG
+    uniqueID: 1834280913
+    locked: 0
+  - name: Objects
+    uniqueID: 2645901525
+    locked: 0
+  - name: Right Below Player
+    uniqueID: 2188891105
+    locked: 0
+  - name: the Player
+    uniqueID: 1182374053
+    locked: 0
+  - name: Right Above Player
+    uniqueID: 139253143
+    locked: 0
+  - name: somewhere reserved
+    uniqueID: 863613561
+    locked: 0
+  - name: Gun UIs
+    uniqueID: 2101121701
+    locked: 0
+  - name: UI
+    uniqueID: 1862808749
+    locked: 0

@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: 19881434d607f0d458bb0e7e99e2669f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Abdomen
+    100002: Armature
+    100004: Camera
+    100006: Digit2Base.L
+    100008: Digit2Base.R
+    100010: Digit2End.L
+    100012: Digit2End.R
+    100014: Digit3Base.L
+    100016: Digit3Base.R
+    100018: Digit3End.L
+    100020: Digit3End.R
+    100022: Digit4Base.L
+    100024: Digit4Base.R
+    100026: Digit4End.L
+    100028: Digit4End.R
+    100030: Digit5Base.L
+    100032: Digit5Base.R
+    100034: Digit5End.L
+    100036: Digit5End.R
+    100038: Ear.L
+    100040: Ear.R
+    100042: FootDigitsBase.L
+    100044: FootDigitsBase.R
+    100046: FootDigitsEnd.L
+    100048: FootDigitsEnd.R
+    100050: Head
+    100052: Heel.L
+    100054: Heel.R
+    100056: //RootNode
+    100058: loin
+    100060: LowerArm.L
+    100062: LowerArm.R
+    100064: LowerJaw
+    100066: LowerLeg.L
+    100068: LowerLeg.R
+    100070: Neck
+    100072: Shoulder.L
+    100074: Shoulder.R
+    100076: Ske
+    100078: Sun
+    100080: Sun_001
+    100082: Sun_002
+    100084: Sun_003
+    100086: Sun_004
+    100088: Sun_005
+    100090: Sun_006
+    100092: TailBase
+    100094: TailDistal
+    100096: TailMedial
+    100098: TailProximal
+    100100: Thigh.L
+    100102: Thigh.R
+    100104: TorsoMain
+    100106: UpperArm.L
+    100108: UpperArm.R
+    100110: UpperJaw
+    100112: UpperLeg.L
+    100114: UpperLeg.R
+    400000: Abdomen
+    400002: Armature
+    400004: Camera
+    400006: Digit2Base.L
+    400008: Digit2Base.R
+    400010: Digit2End.L
+    400012: Digit2End.R
+    400014: Digit3Base.L
+    400016: Digit3Base.R
+    400018: Digit3End.L
+    400020: Digit3End.R
+    400022: Digit4Base.L
+    400024: Digit4Base.R
+    400026: Digit4End.L
+    400028: Digit4End.R
+    400030: Digit5Base.L
+    400032: Digit5Base.R
+    400034: Digit5End.L
+    400036: Digit5End.R
+    400038: Ear.L
+    400040: Ear.R
+    400042: FootDigitsBase.L
+    400044: FootDigitsBase.R
+    400046: FootDigitsEnd.L
+    400048: FootDigitsEnd.R
+    400050: Head
+    400052: Heel.L
+    400054: Heel.R
+    400056: //RootNode
+    400058: loin
+    400060: LowerArm.L
+    400062: LowerArm.R
+    400064: LowerJaw
+    400066: LowerLeg.L
+    400068: LowerLeg.R
+    400070: Neck
+    400072: Shoulder.L
+    400074: Shoulder.R
+    400076: Ske
+    400078: Sun
+    400080: Sun_001
+    400082: Sun_002
+    400084: Sun_003
+    400086: Sun_004
+    400088: Sun_005
+    400090: Sun_006
+    400092: TailBase
+    400094: TailDistal
+    400096: TailMedial
+    400098: TailProximal
+    400100: Thigh.L
+    400102: Thigh.R
+    400104: TorsoMain
+    400106: UpperArm.L
+    400108: UpperArm.R
+    400110: UpperJaw
+    400112: UpperLeg.L
+    400114: UpperLeg.R
+    4300000: loin
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: loin
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: e21b3755e3c64474780a8cabdfa543f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KhalFur
+    second: {fileID: 2100000, guid: 3c942eb927966ec4bb8b9636a77c44dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pant
+    second: {fileID: 2100000, guid: feeb10d83baa7bd41bfca775784cbdc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt
+    second: {fileID: 2100000, guid: 048ad37c89f530c4faa4878b2c137a63, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 16
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 1
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 16
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 25
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

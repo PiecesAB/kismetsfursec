@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SunRayShineOnMoon
+  m_Shader: {fileID: 4800000, guid: c90cafef548a6ae46b5e0267a3fae01f, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA PIXELSNAP_ON
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ATex:
+        m_Texture: {fileID: 2800000, guid: 485123002d536c540b99dc68cbe357e8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BTex:
+        m_Texture: {fileID: 2800000, guid: cc0f64fa203ff8c4bbf349e653874e45, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ToonShade:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 1
+    - _AlphaCutoff: 0.01
+    - _BW: 0
+    - _BWCutoff: 0.5
+    - _BWNoise: 0
+    - _HueShift: 0
+    - _LAngle: 0
+    - _Outline: 0.03
+    - _Sat: 1
+    - _Shadow: 0
+    - _StencilId: 196
+    - _Stun: 0
+    - _TOH: 0
+    - _Tail: 0
+    - _Val: 0
+    m_Colors:
+    - _ACol: {r: 1, g: 1, b: 1, a: 1}
+    - _BCol: {r: 0, g: 0, b: 0, a: 1}
+    - _Bounds: {r: -1, g: 1, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TexSize: {r: 1, g: 1, b: 0, a: 0}
+    - _WaveDistort: {r: 0, g: 0, b: 0, a: 0}

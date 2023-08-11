@@ -1,0 +1,184 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ControlLevels/TitleMenu.unity
+    guid: f6385ecb26be6fc41a83fc95aeb23773
+  - enabled: 1
+    path: Assets/ControlLevels/FirstLoad.unity
+    guid: c51af652a3126ad44ac7d7348f5e62fb
+  - enabled: 1
+    path: Assets/ControlLevels/Disclaimer.unity
+    guid: 51c425b841660a440b7a62af5df11a40
+  - enabled: 1
+    path: Assets/ControlLevels/InSaveMenu.unity
+    guid: 01bd694ccb432de4ca72cdaed5568c9c
+  - enabled: 1
+    path: Assets/ControlLevels/Loaders/NeutralLoader.unity
+    guid: dac313409033f9d40a1aa6990a257c45
+  - enabled: 1
+    path: Assets/ControlLevels/Loaders/LoadingScreenA.unity
+    guid: 295aaf15c0808014b9a1b156eec06228
+  - enabled: 1
+    path: Assets/ControlLevels/Loaders/DeathScreenGiveUp.unity
+    guid: 65f51b285a10a084b80cb10a148fe543
+  - enabled: 1
+    path: Assets/ControlLevels/Loaders/DeathScreenA.unity
+    guid: a48db6633c3bd4b49bbb6f1db6e44469
+  - enabled: 1
+    path: Assets/ControlLevels/Loaders/TimeCardLoader.unity
+    guid: 9eb8ca86b9dd92f4395734c1f9292ee1
+  - enabled: 1
+    path: Assets/ControlLevels/Loaders/ShutterLoader.unity
+    guid: ae6eed086a8f8714282e2308893351b6
+  - enabled: 1
+    path: Assets/ControlLevels/Loaders/BlankBlackLoader.unity
+    guid: 033545acd1407aa4bb793e698a5f3c19
+  - enabled: 1
+    path: Assets/ControlLevels/FatalError.unity
+    guid: 781d2caa6c7ec6b4da53c7eeb37af88d
+  - enabled: 1
+    path: Assets/ControlLevels/DeleteAllConfirmation.unity
+    guid: 854d11a41ae6bac44b53ec0a2c9f90eb
+  - enabled: 1
+    path: Assets/ControlLevels/Loaders/InvestUI.unity
+    guid: 0bf653fa55f666d449e6f0857f94c84c
+  - enabled: 1
+    path: Assets/Cutscenes/Cutscene1.unity
+    guid: 3c2544fac65c17f4f808ff2857d6607e
+  - enabled: 1
+    path: Assets/Levels/Test/testWorld.unity
+    guid: 4c5c0f59454fecc4a904ae9ba1db8e7d
+  - enabled: 1
+    path: Assets/Levels/Travail/Real 1st level.unity
+    guid: 4522de8de9d9bd849827cc69b6ebda08
+  - enabled: 1
+    path: Assets/Levels/Travail/playground.unity
+    guid: 99595b695dce5714e9190a0bdb5ff135
+  - enabled: 1
+    path: Assets/Levels/Travail/playgroundadv.unity
+    guid: 31aa5266fbfd6fe4d966ff6b8e5f67c6
+  - enabled: 1
+    path: Assets/Levels/Travail/level 3-1.unity
+    guid: e3d2419c43ad49f4fb15bfb894d86a3f
+  - enabled: 1
+    path: Assets/Levels/Travail/level 3-2.unity
+    guid: 2029c5af4bdf3e04eb0178b428460274
+  - enabled: 1
+    path: Assets/Cutscenes/KhalFallsInLava.unity
+    guid: 71ca6c0b649d24e489bcd5e91178aa8f
+  - enabled: 1
+    path: Assets/Cutscenes/CalmTheySwim.unity
+    guid: 80defcd96d14c1d438546f7ab9d5c5a7
+  - enabled: 1
+    path: Assets/Levels/Travail/xerxesInit1.unity
+    guid: c251d3c625809e24d87733eb0e8a6036
+  - enabled: 1
+    path: Assets/Levels/Travail/xerxesInit2.unity
+    guid: cfeed922ad996f5428f8cfb30ae4ac95
+  - enabled: 1
+    path: Assets/Levels/Travail/xerxesInit3.unity
+    guid: 7e26b19cf9add4242b491f3b22a6a88b
+  - enabled: 1
+    path: Assets/Levels/Travail/xerxesInitF.unity
+    guid: bb5317a043cf809499b970b7998509fe
+  - enabled: 1
+    path: Assets/Levels/Travail/animalKingdom.unity
+    guid: 8e16ef575ef95cb4c9d1599d5ef70e93
+  - enabled: 1
+    path: Assets/Cutscenes/KhalSavedByAkt.unity
+    guid: 3a4b1905849f5ad45a87c89fa5d11040
+  - enabled: 1
+    path: Assets/Levels/Block_13/gradient.unity
+    guid: 8585a48613b99cb4499a8ec71d5be718
+  - enabled: 1
+    path: Assets/Levels/Block_13/electher.unity
+    guid: 01a3cd652e2c2914aa506d4d8d49ad57
+  - enabled: 1
+    path: Assets/Levels/Block_13/devilStair.unity
+    guid: 9e7bbb219771aa74e9ed396c9779836f
+  - enabled: 0
+    path: Assets/Levels/Block_13/notcavestory.unity
+    guid: 93c4bdba87d3fc34da7b69ab42c7cc66
+  - enabled: 1
+    path: Assets/Levels/Block_13/cat123.unity
+    guid: bf93e863806963142b40786768d7201b
+  - enabled: 1
+    path: Assets/Levels/Block_13/rebuf.unity
+    guid: 8ce09c1d36549a84d9aef33b1e194862
+  - enabled: 1
+    path: Assets/Levels/Block_13/missionpossible.unity
+    guid: 9c9940a283b95424eaf803dea0eb685a
+  - enabled: 1
+    path: Assets/Levels/Block_13/weirdDog.unity
+    guid: 6864e7c1ea5acc9408ac34cfff540a78
+  - enabled: 1
+    path: Assets/Levels/Block_13/hangInThere.unity
+    guid: 1088a545a06897f47bdccfac58b08477
+  - enabled: 1
+    path: Assets/Levels/Block_13/clambake.unity
+    guid: 87453c8fd403cc84aad9dc9326c39288
+  - enabled: 1
+    path: Assets/Levels/Block_13/pizzarounds.unity
+    guid: a99c655e401e0ec429f12615fb51253c
+  - enabled: 1
+    path: Assets/Cutscenes/AfterPizzaRounds.unity
+    guid: 3d828796e32dbd84687ca957c65b36b9
+  - enabled: 1
+    path: Assets/Levels/Block_13/gunIntro.unity
+    guid: b49c09c68c690ab4c8ae2f577ed27af9
+  - enabled: 1
+    path: Assets/Levels/Block_13/gunUpRight.unity
+    guid: c022021573ebd4b4a8628ef68fc2576b
+  - enabled: 1
+    path: Assets/Levels/Block_13/upwardspiral.unity
+    guid: 9e272f9dcb8050e47bc64813cc0086ef
+  - enabled: 1
+    path: Assets/Levels/Block_13/clockandwave.unity
+    guid: 144059872a286884283cd192afd9f55c
+  - enabled: 1
+    path: Assets/Levels/Block_13/spectralTheory.unity
+    guid: f18ea78ad7dfd2646a907ae91cc8dd77
+  - enabled: 1
+    path: Assets/Levels/Block_13/genoccupancy.unity
+    guid: b1631bd89343bb94a9ba70793c088bbb
+  - enabled: 1
+    path: Assets/Levels/Block_13/realProjectivePlane.unity
+    guid: 5e921aa194f1aa747a5ab4ad002613f5
+  - enabled: 1
+    path: Assets/Levels/Block_13/mountGoodstein.unity
+    guid: bf0f9217f5787fe42a14a25f91ae8a1d
+  - enabled: 1
+    path: Assets/Levels/Block_13/cyclotomic.unity
+    guid: 8638418a37199fa478e9abc50e98e6fd
+  - enabled: 1
+    path: Assets/Cutscenes/MeetingYazop.unity
+    guid: 9a416278b4e561f4fb37d6df43fb67f2
+  - enabled: 1
+    path: Assets/Levels/Block_13/yazopboss.unity
+    guid: bf919bea86e4db841b138b2a2445e1c5
+  - enabled: 1
+    path: Assets/Levels/Block_13/heavensGate.unity
+    guid: 5c0ca5b0b16517b43b61a1a7e7f1173d
+  - enabled: 1
+    path: Assets/Cutscenes/B13Finale.unity
+    guid: 39dd8d189c6d29145937dc912107a94f
+  - enabled: 1
+    path: Assets/Levels/Extra/endOfDemo.unity
+    guid: eb2b2e60310811a4c8f7f5335fe49586
+  - enabled: 1
+    path: Assets/Levels/Triakulus/liftYourself.unity
+    guid: 2337541cc7afcf9419e393849f0fa5f9
+  - enabled: 1
+    path: Assets/Levels/E8_Convention/mystIntro.unity
+    guid: 97361a3dee9081f4dba4a4b178946e9d
+  - enabled: 1
+    path: Assets/Levels/Safezone/ravelIntro.unity
+    guid: 20067babb13ee4b4687b0131a0abf4cc
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: e5104fdf4e8817443a3c740bcac6440a,
+      type: 2}

@@ -1,0 +1,1870 @@
+﻿using System.Threading;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using UnityEngine.Audio;
+using UnityEngine.U2D;
+
+[ExecuteInEditMode]
+public class BasicMove : MonoBehaviour
+{
+    //public Utilities.SaveData testZeug;
+
+    public bool youCanDoubleJump;
+    public bool youCanWallJump;
+    public bool youCanInfinityJump;
+    public float moveSpeed;
+
+    public float jumpHeight;
+    public float friction;
+    public float maxFallSpeed;
+    public float gravityMultiplier = 1f;
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask whatIsGround;
+    public Vector2 pointOfContact;
+    //public Rigidbody2D rigRef;
+    public GameObject prefabDust;
+    public float Damage;
+    [Header("-SOUNDS-")]
+    public AudioClip spikeTouchSound;
+    public AudioClip walkSound;
+    public AudioClip jumpSound;
+    public AudioClip doubleJumpSound;
+    public AudioSource landSound;
+    public AudioClip wallSlideSound;
+    public AudioSource outsideIceSound;
+    public AudioClip wallPushSound;
+    public AudioSource punchWhoosh;
+    public AudioSource kickWhoosh;
+    public AudioSource midairRush;
+    public AudioSource ceilHit;
+    public AudioSource momentumBounce;
+    public AudioSource momentumAmbient;
+    public AudioSource waterSplashSound;
+    [Header("----------")]
+    public GameObject bloodSpurt;
+    public GameObject laserBurn;
+    public GameObject sprintParticle;
+    public GameObject[] wallDusts;
+    public GameObject bloodStay;
+    public Sprite fallSprite;
+    public Sprite[] electrocutedSprites;
+
+    [HideInInspector]
+    public bool allowRotation;
+
+    public int grounded;
+    public bool doubleJump;
+    public float currentHorizontalVelocity;
+    public MovementMod movementModifier = 0;
+    public bool momentumMode;
+    public bool momentum = true; //false = left, true = right
+    public Transform momentumParticle;
+
+    float timeLastGrounded = 0;
+    public bool swimming;
+    private bool wasSwimming;
+    public bool running;
+    public bool jumping;
+    private bool falling;
+    public bool wallSliding;
+    public bool noCustomSpeed;
+    public bool CanCollide = true;
+    private int CCLossDelay;
+    public float gravMultiplier;
+    public float fricMultiplier; //go fric yourself
+    public float speedMultiplier;
+    public bool boosted;
+    public int glued;
+    public float iced;
+    public int iced2;
+    private float oldFric;
+    private Rigidbody2D rig;
+    private KHealth kh;
+    private AudioSource audSrc;
+    private Animator animator;
+
+    private Vector2 touchingWallAndDirection;
+    private int wallJumpFrameCountdown;
+    private Transform originalParent;
+
+    private byte storedHMvtByte = 0;
+    private List<byte> storedMvtLogs = new List<byte>();
+    private List<double> timesWhenMoved = new List<double>(); // these two lists record the player move
+    public int sprintCounter = 0;
+    private double lastTimeChangedHMvt;
+    private int timeJumpCool = 0;
+    private bool changeGroundedAnim = true;
+    private int jumpAnimGrace;
+    public Vector2 fakePhysicsVel;
+    public PrimMovingPlatform extraPlat;
+
+    [HideInInspector]
+    public byte swimCount;
+    [HideInInspector]
+    public byte rampSmoothCount;
+
+    [HideInInspector]
+    public Collider2D[] allMyColliders;
+
+    public Material CanCollideFalseMaterial;
+    public Material ElectrocutionMaterial;
+    private Material defaultMat;
+    private int zzzzzzzzzz;
+    public int udm;
+    public int whichPlayerAmI;
+    //private SliderJoint2D sliderH;
+    private SliderJoint2D sliderV;
+    [HideInInspector]
+    public float prevTimeScale;
+    private int electroSpriteChange;
+    private int electroSpriteCurrent;
+    //private bool stickt;
+
+    public BoxCollider2D punchRBox;
+    public BoxCollider2D kickRBox;
+
+    public Vector2 extraPerFrameVel;
+
+    public AudioMixer plrSFX;
+
+    private Rigidbody2D fakePlatform;
+
+    public bool disabledAllControlMvt;
+
+    [HideInInspector]
+    public bool ghost = false;
+
+    private Vector2 minTransDir = Vector2.zero;
+    private Vector2 prevMinTransDir = Vector2.zero;
+
+    private int spikeTouchCooldown;
+
+    public enum MovementMod
+    {
+        None, Tired, High, Stunned
+    };
+    private static float[] ModJumpMults = new float[4] { 1f, 0.3f, 3.3f, 1f };
+    private static float[] ModSpeedMults = new float[4] { 1f, 0.56f, 1.8f, 0.00001f };
+    private static float[] ModGravMults = new float[4] { 1f, 0.18f, 6f, 1f };
+    private const int groundedGraceFrames = 3;
+    private const int idleCheckFrames = 600;
+    private int idleCheck = 600;
+    [HideInInspector]
+    public bool lavaCheck;
+
+    [Header("-----------------------------------------")]
+
+    public float punchPowerMultiplier = 1f;
+
+    private List<Collider2D[]> collisionIgnoredList = new List<Collider2D[]>();
+
+    private BoxCollider2D myBoxCollider;
+    private SpriteRenderer mySprRend;
+
+    private bool turnOffCollisionForever = false;
+
+    public void ResetIdleCounter()
+    {
+        idleCheck = idleCheckFrames;
+    }
+
+    //this state change detection might get rid of the animation variables, later on.
+    void OnChangeOfHorizMovement(byte info)  // in this byte, 2 is left key, 1 is right key.
+    {
+        AudioSource asrc = audSrc;
+        Utilities.ChangePlrMvtRequest(info);
+        double lastMvtChange = DoubleTime.UnscaledTimeRunning-lastTimeChangedHMvt;
+
+            storedMvtLogs.Add(info);
+            timesWhenMoved.Add(DoubleTime.UnscaledTimeRunning);
+
+            for (int lol = 1; lol < 3; lol++)
+            {
+                if (0 > storedMvtLogs.Count - 1 - lol)
+                {
+                    break;
+                }
+                byte tmpM = storedMvtLogs[storedMvtLogs.Count - 1 - lol];
+                double tmpT = timesWhenMoved[timesWhenMoved.Count - 1 - lol];
+                //this will help you sprint
+                
+                    if (((info & 3) == 1 || (info & 3) == 2))
+                    {
+                        if (grounded > 0 && (asrc.clip != walkSound || (asrc.clip == walkSound && !asrc.isPlaying)))
+                        {
+                            asrc.Stop();
+                            asrc.clip = walkSound;
+                            asrc.loop = true;
+                            asrc.Play();
+                        }
+                        else
+                        {
+                        }
+                    }
+                if ((info & 4) == 4)
+                {
+                    asrc.Stop();
+                    asrc.loop = false;
+                    asrc.clip = null;
+
+                if (doubleJump)
+                {
+                    //print("do");
+                    asrc.PlayOneShot(jumpSound, 1f);
+                }
+                else
+                {
+                    asrc.PlayOneShot(doubleJumpSound, 1f);
+                }
+
+                }
+                /*if (wallSliding && !grounded)
+                {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = wallSlideSound;
+                GetComponent<AudioSource>().loop = true;
+                GetComponent<AudioSource>().Play();
+            }*/
+                if ((info == 0 && (grounded > 0 || System.Math.Abs(fakePhysicsVel.y - maxFallSpeed) < 2)))
+                {
+                    audSrc.Stop();
+                }
+                if ((tmpM == 2 && (info & 3) == 2) || (tmpM == 1 && (info & 3) == 1))
+                {
+                    bool otherKeys = (GetComponent<Encontrolmentation>().flags & (~3UL)) != 0UL;
+                    if (otherKeys)
+                    {
+                        sprintCounter = 0;
+                    }
+                    if (!otherKeys && DoubleTime.UnscaledTimeRunning - tmpT < 0.3f && !momentumMode) //
+                    {
+                        sprintCounter++;
+                        break;
+                    }
+                    // values 0-20 are reserved for large sprint
+                }
+
+
+        }
+
+        lastTimeChangedHMvt = DoubleTime.UnscaledTimeRunning;
+    }
+
+    void ZeroX()
+    {
+        currentHorizontalVelocity = fakePhysicsVel.x;
+        currentHorizontalVelocity = Mathf.Lerp(currentHorizontalVelocity, 0, friction*fricMultiplier);
+        fakePhysicsVel = new Vector2((Time.timeScale == 0f)? currentHorizontalVelocity : (currentHorizontalVelocity / Time.timeScale), fakePhysicsVel.y);
+
+    }
+
+    public void WallSlider(Vector2 dir)
+    {
+        if (youCanWallJump && timeJumpCool == 0)
+        {
+        foreach (GameObject i in wallDusts)
+        {
+            ParticleSystem.EmissionModule emod = i.GetComponent<ParticleSystem>().emission;
+            emod.enabled = false;
+        }
+        bool okee = false;
+        if (grounded > 0)
+        {
+            touchingWallAndDirection = new Vector2(0, 0);
+            wallSliding = false;
+            maxFallSpeed = jumpHeight * ModJumpMults[(int)movementModifier];
+        }
+        if (grounded == 0)
+        {
+            Vector2 wallCheckVec = 12 * Mathf.Sign(transform.lossyScale.x) * transform.lossyScale.y * transform.up;
+            float wallCheckDist = Mathf.Abs(7 * transform.lossyScale.x);
+            Vector2 rotDir = RotateVector2(dir);
+            if (transform.lossyScale.x < 0) { rotDir = new Vector2(-rotDir.x, rotDir.y); }
+            RaycastHit2D ray1 = Physics2D.Raycast(((Vector2)transform.position) + wallCheckVec, rotDir, wallCheckDist, 3 << 8);
+            RaycastHit2D ray2 = Physics2D.Raycast(((Vector2)transform.position) - wallCheckVec, rotDir, wallCheckDist, 3 << 8);
+            if (ray1 && ray2)
+            {
+                if (ray1.transform.gameObject.tag != "Beam" && ray2.transform.gameObject.tag != "Beam")
+                {
+                    if (ray1.collider.isTrigger == false && ray2.collider.isTrigger == false && (CanCollide || (ColliderIsImpervious(ray1.collider) && ColliderIsImpervious(ray2.collider))))
+                    {
+                        okee = true;
+                        wallJumpFrameCountdown = 7;
+
+                        if (ray1.transform.gameObject.CompareTag("PlatformStand"))
+                        {
+                            fakePhysicsVel += ray1.transform.GetComponent<Rigidbody2D>().velocity;
+                        }
+                        if (ray2.transform.gameObject.CompareTag("PlatformStand"))
+                        {
+                            fakePhysicsVel += ray2.transform.GetComponent<Rigidbody2D>().velocity;
+                        }
+
+                    }
+                }
+            }
+            if (okee)
+            {
+                if (/*fakePhysicsVel.y < 0*/true)
+                {
+                    touchingWallAndDirection = dir;
+                    if (grounded == 0 && !doubleJump)
+                    {
+                        doubleJump = true;
+                    }
+                    wallSliding = true;
+                    foreach (GameObject i in wallDusts)
+                    {
+                        ParticleSystem.EmissionModule emod = i.GetComponent<ParticleSystem>().emission;
+                        emod.enabled = true;
+                    }
+                    maxFallSpeed = jumpHeight * ModJumpMults[(int)movementModifier] * friction / 1.5f;
+                }
+            }
+            if (!okee)
+            {
+
+                if (grounded == 0 && wallSliding && fakePhysicsVel.y < 0)
+                {
+                    doubleJump = false;
+                }
+                if (wallSliding)
+                {
+                    touchingWallAndDirection = new Vector2(0, 0);
+                    wallSliding = false;
+
+                    maxFallSpeed = jumpHeight * ModJumpMults[(int)movementModifier];
+                }
+            }
+        }
+    }
+    }
+
+    AudioSource GetAud(string s)
+    {
+        return GameObject.Find(s).GetComponent<AudioSource>();
+    }
+
+    //better way coming soon
+    void InitSpecialPlayerVars()
+    {
+        landSound = GetAud("landSound");
+        outsideIceSound = GetAud("icesound");
+        punchWhoosh = GetAud("punchWhoosh");
+        kickWhoosh = GetAud("kickWhoosh");
+        midairRush = GetAud("airSoundJumpAlwaysPlaying");
+        ceilHit = GetAud("ceilHit");
+        waterSplashSound = GetAud("publicDomainSplash");
+
+        KHealth kh = GetComponent<KHealth>();
+
+        kh.toxicShockSound = GetAud("shockextreme");
+        kh.electrocutedSound = GetAud("electrocutePlayer");
+        kh.minorVictorySound = GetAud("minorSuccess");
+        kh.fastButtonPress = GetAud("fastButtonPress");
+        kh.fireIgniteSound = GetAud("fireIgnite");
+        kh.fireOngoingSound = GetAud("fireContinuous");
+        kh.doorEnterRef = GetAud("doorEnter");
+
+        GetComponent<OffScreenArrow>().cam = Camera.main;
+    }
+
+    void Awake()
+    {
+        maxFallSpeed = jumpHeight;
+        if (!Application.isPlaying)
+        {
+            InitSpecialPlayerVars();
+            return;
+        }
+    }
+
+    void Start()
+    {
+        //pathfind test
+        /*var testtimer = System.Diagnostics.Stopwatch.StartNew();
+        StartCoroutine(Pathfinding.MakePath(new Vector2(2560, -392+48), new Vector2(2144, -824 + 16), (result) =>
+        {
+            testtimer.Stop();
+            Debug.Log("done in " + testtimer.ElapsedMilliseconds + " ms");
+            for (int i = 0; i < result.Count - 1; ++i)
+            {
+                Debug.DrawLine(result[i], result[i + 1], Color.red, 100f);
+            }
+        }));*/
+
+        kh = GetComponent<KHealth>();
+        mySprRend = GetComponent<SpriteRenderer>();
+        audSrc = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        if (!Application.isPlaying) { return; }
+        rig = GetComponent<Rigidbody2D>();
+        collisionIgnoredList.Clear();
+        myBoxCollider = GetComponent<BoxCollider2D>();
+        allMyColliders = GetComponents<Collider2D>();
+        disabledAllControlMvt = false; //fix later for more players in a level
+        extraPerFrameVel = Vector2.zero;
+        zzzzzzzzzz = 3;
+        swimCount = rampSmoothCount = 0;
+        CCLossDelay = 0;
+        momentum = true;
+        //Utilities.LoadGame(0);
+        //print(Utilities.loadedSaveData);
+        lastTimeChangedHMvt = DoubleTime.UnscaledTimeRunning;
+        jumpAnimGrace = 0;
+        prevTimeScale = 0;
+        //stickt = false;
+        oldFric = friction;
+        defaultMat = GetComponent<SpriteRenderer>().material;
+        glued = 0;
+        iced2 = 0;
+        ParticleSystem.EmissionModule spremod = sprintParticle.GetComponent<ParticleSystem>().emission;
+        spremod.enabled = false;
+        foreach (GameObject i in wallDusts)
+        {
+            ParticleSystem.EmissionModule emod = i.GetComponent<ParticleSystem>().emission;
+            emod.enabled = false;
+        }
+        //sprintParticle.GetComponent<ParticleSystem>().enableEmission = false;
+        if (noCustomSpeed)
+        {
+            moveSpeed = 200;
+            jumpHeight = 225;
+            maxFallSpeed = 225;
+        }
+
+        originalParent = transform.parent;
+        wallJumpFrameCountdown = 0;
+       // GetComponent<Animator>().SetBool("Running", running);
+       // GetComponent<Animator>().SetBool("Jumping", jumping);
+        currentHorizontalVelocity = 0;
+        swimming = false;
+        iced = 0;
+        wasSwimming = false;
+        fakePhysicsVel = Vector2.zero;
+        electroSpriteChange = electroSpriteCurrent = 0;
+        grounded = 0;
+        spikeTouchCooldown = 0;
+    }
+
+    // Update is called once per frame
+
+    public void AddBlood(Vector3 at, Quaternion rot)
+    {
+        GameObject bloodSpurtNew = Instantiate(bloodSpurt, at, rot) as GameObject;
+        GameObject bloodStayNew = Instantiate(bloodStay, at, Quaternion.identity) as GameObject;
+        bloodStayNew.transform.SetParent(transform, true);
+        bloodSpurtNew.GetComponent<ParticleSystem>().Play();
+        //bloodStayNew.GetComponent<ParticleSystem>().Play();
+        Destroy(bloodSpurtNew, 60f);
+       // Destroy(bloodStayNew, 3000f);
+    }
+
+    public void AddBurn(Vector3 at, float rot)
+    {
+        GameObject laserNew = Instantiate(laserBurn, at, Quaternion.AngleAxis(rot,Vector3.forward)) as GameObject;
+        laserNew.transform.SetParent(transform, true);
+       // Destroy(laserNew, 3000f);
+    }
+
+    public void Unparent()
+    {
+        /*if (transform.parent != originalParent)
+        {
+            transform.SetParent(originalParent, true);
+        }*/
+
+        fakePlatform = null;
+    }
+
+    /*void OnCollisionExit2D(Collision2D coll)
+    {
+        if ((coll.gameObject.layer == 8 || coll.gameObject.layer == 9 ) && coll.GetContact(0).normal.y > 0.1f && coll.GetContact(0).normal.x < 0.9f && coll.gameObject.CompareTag("PlatformStand"))
+        {
+            transform.parent = originalParent;
+        }
+    }*/
+
+    private void MinTranslateVector(Collision2D coll)
+    {
+        //move them slightly for minor inside-the-ground crap
+        // coll.GetContact(0).separation is negative when they are overlapping
+        float sep = coll.GetContact(0).separation;
+        if (sep < -4f) { sep = 4f; } //max move
+        minTransDir += coll.GetContact(0).normal*(-sep);
+        if ((Mathf.Abs(Vector2.Dot(coll.GetContact(0).normal,Vector2.right)) > 0.7f && sep < 0f) || sep < -0.05f)
+        {
+            transform.position += (Vector3)(coll.GetContact(0).normal * (-sep * 0.5f));
+        }
+    }
+
+    private IEnumerator YouCantIgnoreMeForever(Collider2D c1, Collider2D c2)
+    {
+        collisionIgnoredList.Add(new Collider2D[] { c1, c2 });
+
+        if (collisionIgnoredList.Count == 1)
+        {
+            while (CCLossDelay != 0)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
+            for (int i = 0; i < collisionIgnoredList.Count; ++i)
+            {
+                Collider2D[] pair = collisionIgnoredList[i];
+                if (pair[0] && pair[1])
+                {
+                    Physics2D.IgnoreCollision(pair[0], pair[1], false);
+                }
+            }
+            collisionIgnoredList.Clear();
+            yield break;
+        }
+
+        yield return null;
+    }
+
+    public bool ColliderIsImpervious(Collider2D c2)
+    {
+        if (!c2) { return false; }
+        SpriteRenderer sr = c2.GetComponent<SpriteRenderer>();
+        if (!sr) { return false; }
+        return sr.sprite.name.StartsWith(Utilities.imperviousBlockName);
+    }
+
+    public bool AntiCollisionStuff(Collision2D coll)
+    {
+        if (!CanCollide)
+        {
+            SpriteRenderer sr = coll.collider.GetComponent<SpriteRenderer>();
+
+            if (!(sr && sr.sprite.name.StartsWith(Utilities.imperviousBlockName)))
+            {
+                Physics2D.IgnoreCollision(coll.otherCollider, coll.collider, true);
+                StartCoroutine(YouCantIgnoreMeForever(coll.otherCollider, coll.collider));
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void IgnoreCollisionFromOutside(Collider2D other)
+    {
+        // need to be non-cancollide
+        if (CanCollide || CCLossDelay == 0) { return; }
+        //ground, enemy, or player
+        if (((1 << other.gameObject.layer) & 1049344) == 0) { return; }
+
+        if (Physics2D.GetIgnoreCollision(other, myBoxCollider)) { return; }
+
+        SpriteRenderer sr = other.GetComponent<SpriteRenderer>();
+
+        if (!(sr && sr.sprite.name.StartsWith(Utilities.imperviousBlockName)))
+        {
+            for (int i = 0; i < allMyColliders.Length; ++i)
+            {
+                Physics2D.IgnoreCollision(allMyColliders[i], other, true);
+                StartCoroutine(YouCantIgnoreMeForever(allMyColliders[i], other));
+            }
+        }
+
+    }
+
+    public void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (AntiCollisionStuff(coll)) { return; }
+
+        if (iced2 > 0 && coll.gameObject.CompareTag("PlatformStand")) //for momentum
+        {
+            float avgX = 0.5f* (coll.rigidbody.velocity.x + iced) / (coll.rigidbody.mass + rig.mass);
+            iced = avgX;
+            coll.rigidbody.velocity = new Vector2(avgX, coll.rigidbody.velocity.y);
+        }
+
+        if ((coll.gameObject.layer == 8 || coll.gameObject.layer == 9 || coll.gameObject.layer == 11) && coll.transform.parent != transform)
+        {
+            /*if (coll.GetContact(0).normal.y > 0.8f && coll.GetContact(0).normal.x < 0.2f)
+            {
+                //Jump Script
+                if (coll.gameObject.CompareTag("PlatformStand"))
+                {
+                    transform.parent = coll.transform;
+                }
+                if (grounded == false)
+                {
+                    //Destroy(Instantiate(prefabDust, transform.position - new Vector3(0f, 15.5f, 0f), Quaternion.identity), 0.4f);
+                    
+                }
+                
+            }*/
+            Vector2 fakeUp = (transform.lossyScale.y < 0f) ? -transform.up : transform.up;
+            if (coll.gameObject.layer != 11 && Vector2.Dot(coll.GetContact(0).normal, -fakeUp) > 0.9f 
+                && (coll.collider.GetComponent<SpriteShapeRenderer>() || Vector2.Dot(coll.collider.bounds.center - transform.position, fakeUp) > 0f) )
+            {
+                //Jump Script
+                audSrc.Stop();
+                ceilHit.Play();
+                if (coll.gameObject.GetComponent<MessageBumpBox>())
+                {
+                    coll.gameObject.GetComponent<MessageBumpBox>().Bump(4f);
+                }
+                fakePhysicsVel = new Vector2(fakePhysicsVel.x, -maxFallSpeed * ModJumpMults[(int)movementModifier] / Time.timeScale);
+            }
+            if (Vector2.Dot(coll.GetContact(0).normal, Vector2.down) > 0.99f && coll.gameObject.CompareTag("Glue"))
+            {
+                /*if (!stickt)
+                {
+                    fakePhysicsVel = new Vector2(fakePhysicsVel.x, 0);
+                    stickt = true;
+                }*/
+            }
+            if (momentumMode)
+            {
+                primBreakable pbr = coll.gameObject.GetComponent<primBreakable>();
+                if (pbr)
+                {
+                    Vector2 space = transform.position - coll.transform.position;
+                    pbr.BreakIt(1000, Mathf.Rad2Deg * Mathf.Atan2(space.y, space.x));
+                }
+                else
+                {
+                    float dot = Vector2.Dot(Vector2.right, coll.GetContact(0).normal);
+                    if (dot > 0.99f && !momentum)
+                    {
+                        FollowThePlayer ftp = Camera.main.GetComponent<FollowThePlayer>();
+                        //fakePhysicsVel = Vector2.up * (jumpHeight/Time.timeScale);
+                        momentum = true;
+                        momentumBounce.Stop();
+                        momentumBounce.Play();
+                        ftp.vibSpeed += 1.5f/(ftp.vibSpeed+1f);
+                        
+                    }
+                    if (dot < -0.99f && momentum)
+                    {
+                        FollowThePlayer ftp = Camera.main.GetComponent<FollowThePlayer>();
+                        //fakePhysicsVel = Vector2.up * (jumpHeight / Time.timeScale);
+                        momentum = false;
+                        momentumBounce.Stop();
+                        momentumBounce.Play();
+                        ftp.vibSpeed += 1.5f / (ftp.vibSpeed + 1f);
+                    }
+                }
+            }
+        }
+
+        // very archaic script region! but some things depend on it... like icicles
+        if (coll.gameObject.layer == 9 && spikeTouchCooldown == 0)
+        {
+            foreach (var spik in coll.gameObject.GetComponents<SpikeDirectionSetter>())
+            {
+                if (Vector2.Dot(coll.GetContact(0).normal, spik.directionToDie) > 0.75f)
+                {
+                    fakePhysicsVel = new Vector2(spik.directionToDie.x * 260, spik.directionToDie.y * 200);
+                    kh.ChangeHealth(-Damage,spik.deathReason);
+                    audSrc.clip = spikeTouchSound;
+                    audSrc.PlayOneShot(spikeTouchSound);
+                    Vector3 v3a = new Vector3(coll.GetContact(0).point.x, coll.GetContact(0).point.y);
+                    AddBlood(v3a, Quaternion.LookRotation(v3a, Vector3.up));
+                    spikeTouchCooldown = 5;
+                    break;
+                    //Object.Destroy(this.gameObject);
+                }
+            }
+        }
+
+        if (coll.gameObject.CompareTag("Axe")) // This obsolete code is worse
+        {
+                 fakePhysicsVel = 350f*coll.GetContact(0).normal;
+                kh.ChangeHealth(-Damage,"axe");
+                audSrc.PlayOneShot(spikeTouchSound);
+            Vector3 v3a = new Vector3(coll.GetContact(0).point.x, coll.GetContact(0).point.y);
+            AddBlood(v3a, Quaternion.LookRotation(v3a, Vector3.up));           
+            //Object.Destroy(this.gameObject);
+        }
+        MinTranslateVector(coll);
+    }
+
+    public void OnCollisionStay2D(Collision2D coll)
+    {
+        AntiCollisionStuff(coll);
+        MinTranslateVector(coll);
+    }
+
+    public void OnToggleSwimming(bool t)
+    {
+        Encontrolmentation encmt = gameObject.GetComponent<Encontrolmentation>();
+        swimming = t;
+        if (!t)
+        {
+            gravMultiplier = 1f;
+            if (!disabledAllControlMvt && ((encmt.currentState & 4UL) == 4UL || (encmt.currentState & 16UL) == 16UL)) //holding up or A
+            {
+                fakePhysicsVel = new Vector2(fakePhysicsVel.x, jumpHeight * ModJumpMults[(int)movementModifier] / Time.timeScale);
+                grounded = Mathf.Max(0,grounded-1);
+                doubleJump = true;
+            }
+        }
+        else
+        {
+
+            gravMultiplier = 0f;
+        }
+
+        if (waterSplashSound)
+        {
+            waterSplashSound.Stop();
+            waterSplashSound.Play();
+        }
+    }
+
+    public Transform CheckMoving(Rigidbody2D r2)
+    {
+        if (r2 && r2.gameObject == null) //if the object is about to be destroyed
+        {
+            return null;
+        }
+
+        Rigidbody2D curr = r2;
+        int maxDepth = 50;
+        while (curr && maxDepth > 0)
+        {
+            if (curr.transform.hasChanged && curr.velocity.sqrMagnitude > 0f)
+            {
+                return curr.transform;
+            }
+            if (curr.transform.parent)
+            {
+                curr = curr.transform.parent.GetComponent<Rigidbody2D>();
+            }
+            --maxDepth;
+        }
+        return null;
+    }
+
+    public void GroundSelf(Collider2D col)
+    {
+            jumping = false;
+            doubleJump = true;
+            Rigidbody2D r2 = col.GetComponent<Rigidbody2D>();
+        /* if (col.GetComponent<PrimMovingPlatform>())
+        {
+            fakePhysicsVel += col.GetComponent<PrimMovingPlatform>().velocity*(1f-friction);
+        }*/
+
+        if (running && grounded == 0 && !(audSrc.clip == walkSound && audSrc.isPlaying)) //fix this bug: first jump not playing jump sound. cause is this block here
+        {
+            audSrc.clip = walkSound;
+            audSrc.loop = true;
+            audSrc.Play();
+        }
+            /*if (col.gameObject.layer == 11 && transform.position.y < col.transform.position.y + 25.5f)
+            {
+            transform.position = new Vector3(transform.position.x,col.transform.position.y+26.5f, transform.position.z);
+            fakePhysicsVel = new Vector2(fakePhysicsVel.x, 0);
+            }*/
+        if (grounded == 0 /*&& extraPlat == null*/ && iced2 == 0 && !Physics2D.GetIgnoreCollision(GetComponent<BoxCollider2D>(),col))
+        {
+            //Destroy(Instantiate(prefabDust, transform.position - new Vector3(0f, 15.5f, 0f), Quaternion.identity), 0.4f);
+            if (kh.electrocute == 0f)
+            {
+                landSound.volume = Mathf.Max(0.05f, -fakePhysicsVel.y / (maxFallSpeed * 2f));
+                landSound.Play();
+            }
+        }
+        grounded = groundedGraceFrames;
+        Transform pt = CheckMoving(r2);
+        //ulong cs = GetComponent<Encontrolmentation>().currentState & 3UL;
+        //if (cs == 0UL || cs == 3UL)
+        {
+            if (pt && pt.GetComponent<Rigidbody2D>())
+            {
+                fakePlatform = pt.GetComponent<Rigidbody2D>();
+                //transform.SetParent(pt, true);
+            }
+        }
+
+        /*else
+        {
+            Unparent();
+            if (pt)
+            {
+                extraPerFrameVel += pt.GetComponent<Rigidbody2D>().velocity;
+            }
+        }*/
+    }
+
+    static List<int> movingBlocksThisFrame = new List<int>();
+
+    /*public void OnCollisionStay2D(Collision2D coll)
+    {
+        Rigidbody2D r2 = coll.gameObject.GetComponent<Rigidbody2D>();
+        if (!coll.gameObject.GetComponent<PrimMovingPlatform>() && r2 && !movingBlocksThisFrame.Contains(r2.gameObject.GetInstanceID()))
+        { // new movement junk
+            Vector2 tv = r2.velocity;
+            Vector2 av = Vector3.Cross(Vector3.forward * r2.angularVelocity, coll.GetContact(0).point - ((Vector2)coll.gameObject.transform.position));
+            Vector2 f = (tv + av) * 2;
+            extraPerFrameVel += f;
+            //print(DoubleTime.ScaledTimeSinceLoad);
+            movingBlocksThisFrame.Add(r2.gameObject.GetInstanceID());
+        }
+    }*/
+
+    //also there are overrides, punch/kick takes precedence over idle
+    static Dictionary<int, int> prec = new Dictionary<int, int>()
+        {
+            {Animator.StringToHash("PunchUpRight"),0},
+            {Animator.StringToHash("KickDownRight"),0},
+            {Animator.StringToHash("KhalHurt"), -1},
+        };
+
+    public void SetAnim(string name)
+    {
+        Animator a = animator;
+        AnimatorStateInfo asi = a.GetCurrentAnimatorStateInfo(0);
+        if (!asi.IsName(name))
+        {
+            int hashName = Animator.StringToHash(name);
+            int c1 = prec.ContainsKey(asi.shortNameHash) ? prec[asi.shortNameHash] : int.MinValue;
+            int c2 = prec.ContainsKey(hashName) ? prec[hashName] : int.MinValue;
+            if (asi.normalizedTime < 1f && c1 > c2)
+            {
+                return;
+            }
+            else if (idleCheck > 0 || name == "Idle2") //idle check... should this be here?
+            {
+                a.CrossFade(name, 0f);
+            }
+        }
+    }
+
+    //void Twerk(bool up)
+    //{
+        /*string name = "";
+        if (up)
+        {
+           name = "TUp";
+        }else
+        {
+            name = "TDn";
+        }
+
+        Animator a = GetComponent<Animator>();
+        if (!a.GetCurrentAnimatorStateInfo(0).IsName(name))
+        {
+            a.CrossFade(name, 0f);
+        }*/
+    //}
+
+    void CorrectJump(bool backwards)
+    {
+        if (grounded == 0 && !wallSliding && fakePhysicsVel.y <= 0)
+        {
+            RaycastHit2D zr = new RaycastHit2D();
+            float conn = Mathf.Max(3f + 6f * (1f - ((maxFallSpeed + (fakePhysicsVel.y*Time.timeScale)) / maxFallSpeed)),0f)*transform.lossyScale.y;
+            float negative = backwards ? -1f : 1f;
+            zr = Physics2D.Raycast(transform.position + (Vector3)RotateVector2(new Vector2(negative*(6 + ((Time.fixedDeltaTime / Time.timeScale) * moveSpeed * speedMultiplier)), -19 + conn)) * transform.lossyScale.y, -transform.up, conn, 2816);
+            if (zr.collider != null && !zr.collider.isTrigger && zr.distance > 0 && zr.normal.y == 1 && !Physics2D.GetIgnoreCollision(GetComponent<BoxCollider2D>(), zr.collider))
+            {
+                //fakePhysicsVel = Vector2.zero;
+                transform.position += new Vector3(GetComponent<SpriteRenderer>().flipX?-1f:1f, (conn - zr.distance));
+                rig.MovePosition(transform.position);
+            }
+        }
+    }
+
+
+    //private void FixedUpdate()
+    //{
+    //    Rigidbody2D rig = GetComponent<Rigidbody2D>();
+        //rig.velocity = fakePhysicsVel;
+        //if (fakePlatform)
+        //{
+            //print(fakePlatform.velocity);
+        //    rig.velocity += new Vector2(fakePlatform.velocity.x * (1f/*+ fakePlatform.velocity.x*0.0002f*/), fakePlatform.velocity.y);
+        //}
+    //}
+
+    public void TurnOffCollision()
+    {
+        CanCollide = false;
+        CCLossDelay = 4;
+    }
+
+    public Vector2 RotateVector2(Vector2 old)
+    {
+        float AC = Mathf.Cos(transform.eulerAngles.z * Mathf.Deg2Rad);
+        float AS = Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad);
+        return new Vector2(old.x * AC - old.y * AS, old.x * AS + old.y * AC);
+    }
+
+    public Vector2 RotateVector2Back(Vector2 old)
+    {
+        float AC = Mathf.Cos(transform.eulerAngles.z * Mathf.Deg2Rad);
+        float AS = Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad);
+        return new Vector2(old.x * AC + old.y * AS, - old.x * AS + old.y * AC);
+    }
+
+    public void TurnOffCollisionForever() //cheat
+    {
+        turnOffCollisionForever = true;
+    }
+
+    void LateUpdate()
+    {
+        if (!Application.isPlaying) { return; }
+
+        if (turnOffCollisionForever) { TurnOffCollision(); }
+
+        boosted = false;
+        Vector2 rampNormal = Vector2.down;
+        
+        fricMultiplier = Time.timeScale;
+        if (iced > 0)
+        {
+            fricMultiplier = 0f;
+        }
+        if (CanCollide)
+        {
+            if (fakePlatform != null /*&& fakePlatform.velocity.y < 0f*/ && !jumping)
+            {
+                //fakePhysicsVel += fakePlatform.velocity; //Vector2.up * fakePlatform.velocity.y;
+                extraPerFrameVel += fakePlatform.velocity;
+            }
+        
+            if (Physics2D.GetIgnoreLayerCollision(20, 8))
+            {
+                CCLossDelay = 0;
+                GetComponent<PlatformEffector2D>().useColliderMask = true;
+            }
+            
+        }
+        else if (!CanCollide)
+        {
+            if (!Physics2D.GetIgnoreLayerCollision(20, 8))
+            {
+                GetComponent<PlatformEffector2D>().useColliderMask = false;
+            }
+        }
+
+        //materials Block /////////////////////////////////////////////////////////////////////////////
+        if (CCLossDelay == 0 && mySprRend.material != defaultMat)
+        {
+            mySprRend.material = defaultMat;
+        }
+        else if (CCLossDelay > 0 && mySprRend.material != CanCollideFalseMaterial)
+        {
+            mySprRend.material = CanCollideFalseMaterial;
+            mySprRend.material.SetColor("_GhostColor", ghost ? (new Color(0f, 1f, 1f, 0.55f)) : Color.white);
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        Encontrolmentation encmt = gameObject.GetComponent<Encontrolmentation>();
+        if (DoubleTime.timeScaleCopy == 0 || Time.timeScale == 0 || (prevTimeScale == 0 && encmt.allowUserInput))
+        {
+            if (CCLossDelay > 0) { CCLossDelay += 1; } //it decreases later
+        }
+        else
+        {
+
+            if (zzzzzzzzzz >= 1)
+            {
+                zzzzzzzzzz -= 1;
+            }
+
+            ClickToChangeTime cct = GetComponent<ClickToChangeTime>();
+
+            if (youCanInfinityJump)
+            {
+                doubleJump = true;
+            }
+            if (grounded > 0 && (disabledAllControlMvt || ((encmt.currentState & 3UL) == 0UL)))
+            {
+                //if (!disabledAllControlMvt && (encmt.currentState & 12UL) != 0UL && !swimming)
+                //{
+                    //Twerking is idle anim now
+                    /*bool d = ((encmt.currentState & 4UL) == 4UL);
+                    Twerk(d);
+                    changeGroundedAnim = false;*/
+                //}
+                SetAnim("Idle1");
+            }
+            if (grounded == 0)
+            {
+                jumpAnimGrace = Mathf.Max(jumpAnimGrace - 1, 0);
+                if (jumpAnimGrace == 0)
+                {
+                    float YVel = fakePhysicsVel.y;
+                    animator.speed = (glued > 0)?0f:System.Math.Abs(YVel / maxFallSpeed);
+                    if (YVel >= 60 / Time.timeScale)
+                    {
+                        changeGroundedAnim = true;
+                        SetAnim("MovingUp");
+                    }
+                    else if (YVel <= -80 / Time.timeScale)
+                    {
+                        changeGroundedAnim = true;
+                        SetAnim("MovingDown");
+                    }
+                    else
+                    {
+                        changeGroundedAnim = true;
+                        SetAnim("Floating");
+                    }
+                }
+            }
+            // swimming /////////////
+            if (swimming)
+            {
+                doubleJump = false;
+                fricMultiplier *= 2f;
+                if (!wasSwimming)
+                {
+                    OnToggleSwimming(true);
+                    wasSwimming = true;
+                }
+                swimming = false;
+
+            }
+            swimCount -= (swimCount == 0) ? (byte)0 : (byte)1;
+
+            if (!swimming)
+            {
+                if (wasSwimming && swimCount == 0)
+                {
+                    OnToggleSwimming(false);
+                    wasSwimming = false;
+                }
+            }
+
+            /////////////////////////
+
+            #region new grounding stuff
+            if (timeJumpCool == 0)
+            {
+                // note for raycasting
+                // we are assuming the player extends to 18 pixels below.
+                // the boxcast starts 1.5 pixels upwards of that though.
+                // these values are heavily abused and hardcoded. too bad!!!!
+
+                bool did = false;
+                Vector3 fakeUp = (transform.lossyScale.y < 0) ? -transform.up : transform.up;
+                RaycastHit2D[] r = Physics2D.BoxCastAll(
+                    transform.position - fakeUp * 16.5f * Mathf.Abs(transform.lossyScale.y), 
+                    new Vector2(Mathf.Abs(12f * transform.lossyScale.x), 0.1f), 
+                    transform.eulerAngles.z, -fakeUp,
+                    1.5f + Mathf.Abs(transform.lossyScale.y)*2f + (((extraPlat == null) ? ((fakePlatform != null)?Mathf.Max(0f, -fakePlatform.velocity.y*Time.deltaTime):0) /*maybe change 0*/ : Mathf.Max(0f, -extraPlat.dif.y))), 
+                    2816 + 1048576, transform.position.z - 256, transform.position.z + 256);
+                //RaycastHit2D[] nr = Physics2D.BoxCastAll(transform.position - Vector3.up * 13f, new Vector2(12f, 0.1f), transform.eulerAngles.z, Vector3.down, 1f, 2816, transform.position.z - 256, transform.position.z + 256);//(transform.position + new Vector3(6, -13, 0), Vector2.down, 1f, 2816); //(layers 8 9 11)
+                for (int ir = 0; ir < r.Length; ++ir)
+                {
+                    RaycastHit2D rr = r[ir];
+                    if (rr.collider != null 
+                        && rr.collider.gameObject != gameObject 
+                        && (rr.collider.gameObject.layer != 20 || transform.InverseTransformPoint(rr.transform.position).y < -4.5f*transform.lossyScale.y) 
+                        && (CCLossDelay == 0 || ColliderIsImpervious(rr.collider)))
+                    {
+                        if (!rr.collider.isTrigger && Vector2.Dot(rr.normal, fakeUp) >= 0.25f && !Physics2D.GetIgnoreCollision(rr.collider, myBoxCollider) && (fakePhysicsVel.y + extraPerFrameVel.y <= ((rr.collider.GetComponent<PrimMovingPlatform>() != null && extraPlat == null)?rr.rigidbody.velocity.y:(rr.rigidbody?(rr.rigidbody.velocity.y):0))))
+                        {
+                            did = true;
+
+                            float hoverCorrection = rr.distance - 1.5f; //Sometimes the player just barely hovers above the block. This was supposed to
+                            // make it easier to jump. But it ruins the block behaviors.
+                            if (hoverCorrection > 0 
+                                && !rr.collider.GetComponent<SuperRay>() 
+                                && !(rr.rigidbody && rr.rigidbody.velocity.magnitude > 1f) 
+                                && !(rr.collider.gameObject.layer == 20))
+                            {
+                                extraPerFrameVel += -200 * (Vector2)fakeUp;
+                            }
+
+                            GroundSelf(rr.collider);
+                            if (!rr.collider.gameObject.CompareTag("Ice") /*&& rr.collider.gameObject.layer != 11*/)
+                            {
+                               fakePhysicsVel = new Vector2(fakePhysicsVel.x, (fakePlatform)?fakePlatform.velocity.y*Mathf.Abs(transform.lossyScale.y):0);
+                            }
+                            /* if (fakePhysicsVel.y <= 0 && rr.collider.gameObject.layer == 11)
+                             {
+                                 fakePhysicsVel -= new Vector2(0, fakePhysicsVel.y);
+                             }*/
+                            PrimMovingPlatform pmp = rr.collider.GetComponent<PrimMovingPlatform>();
+                            if (rr.collider.gameObject.CompareTag("PlatformStand") && pmp != null && pmp.enabled)
+                            {
+                                /*extraPlat = rr.collider.GetComponent<PrimMovingPlatform>();
+                                if (transform.parent != rr.collider.transform)
+                                {
+                                    transform.parent = rr.collider.transform;
+                                }*/
+                                //what this do anyway GetComponent<Rigidbody2D>().AddForce( new Vector2(rr.transform.gameObject.GetComponent<PrimMovingPlatform>().dif.x,0)*0.001f,ForceMode2D.Impulse);
+                                Rigidbody2D rb1 = rr.rigidbody;
+                                extraPlat = rb1.GetComponent<PrimMovingPlatform>();
+                                /*if (sliderH == null)
+                                {
+                                    sliderH = gameObject.AddComponent<SliderJoint2D>();
+                                }*/
+                                if (sliderV == null)
+                                {
+                                    sliderV = gameObject.AddComponent<SliderJoint2D>();
+                                }
+                                sliderV.connectedBody /*= sliderH.connectedBody*/ = rb1;
+                                sliderV.autoConfigureAngle /*= sliderH.autoConfigureAngle*/ = false;
+                                sliderV.angle = 0f; /*sliderH.angle = 0f;*/
+                                sliderV.enableCollision /*= sliderH.enableCollision*/ = true;
+                                sliderV.connectedAnchor /*= sliderH.connectedAnchor*/ = new Vector2(transform.position.x - rb1.transform.position.x, 18.5f +rr.collider.bounds.extents.y /*+ ((extraPlat == null) ? 0f : extraPlat.dif.y)*/);
+                                /*if ((encmt.currentState & 3UL) != 0UL)
+                                {
+                                    DestroyImmediate(sliderH);
+                                    sliderH = null;
+                                }*/
+                                
+                            }
+                            /*else if (fakePlatform)
+                            {
+                                if (sliderV == null)
+                                {
+                                    sliderV = gameObject.AddComponent<SliderJoint2D>();
+                                }
+                                sliderV.connectedBody = fakePlatform;
+                                sliderV.autoConfigureAngle = false;
+                                sliderV.angle = 0f;
+                                sliderV.enableCollision = true;
+                                sliderV.connectedAnchor = new Vector2(transform.position.x - fakePlatform.transform.position.x, 18.5f + rr.collider.bounds.extents.y);
+                            }*/
+                            else
+                            {
+                                //transform.parent = originalParent;
+                                DestroyImmediate(sliderV);
+                                sliderV = null;
+                                /*DestroyImmediate(sliderH);
+                                sliderH = null;*/
+                                extraPlat = null;
+                            }
+                            //print(rr.normal);
+                            Vector2 rotNormal = RotateVector2Back(rr.normal);
+                            if (Vector2.Dot(rotNormal, Vector2.up) < 0.99984f || rampSmoothCount == 0)
+                            {
+                                rampNormal = rotNormal;
+                                rampSmoothCount = 2;
+                            }
+                            else
+                            {
+                                --rampSmoothCount;
+                            }
+                            jumpAnimGrace = 0; //formerly 2
+
+                            if (rr.collider.GetComponent<SpecialBlocks1>() && rr.collider.GetComponent<SpecialBlocks1>().type == SpecialBlocks1.SpecialBlock1Type.Glue)
+                            {
+                                glued = 2;
+                            }
+                        }
+                    }
+                }
+            
+                if (!did)
+                {
+                    Unparent();
+                    DestroyImmediate(sliderV);
+                    sliderV = null;
+                    /*DestroyImmediate(sliderH);
+                    sliderH = null;*/
+                    extraPlat = null;
+                    grounded = (glued>0)?0:Mathf.Max(0, grounded - 1);
+                }
+            }
+            else
+            {
+                timeJumpCool--;
+            }
+            #endregion
+
+            /////////////////////////
+
+            float mvtAngle = -Mathf.Atan2(rampNormal.x, rampNormal.y);
+
+            var sprintParticleEmmision = sprintParticle.GetComponent<ParticleSystem>().emission;
+            if (sprintCounter >= 3 || speedMultiplier > 1.5f)
+            {
+                sprintParticleEmmision.enabled = true;
+            }
+            else
+            {
+                sprintParticleEmmision.enabled = false;
+            }
+
+            
+            float mvSpeedTemp = moveSpeed * ModSpeedMults[(int)movementModifier];
+            float jumpHeightTemp = jumpHeight * ModJumpMults[(int)movementModifier];
+            float gMulTemp = gravityMultiplier * ModGravMults[(int)movementModifier];
+            float frictionTemp = (iced > 0)?0:friction;
+            byte tempHMovementByte = 0;
+            if (grounded == 0)
+            {
+                frictionTemp *= 0.6f;
+                mvSpeedTemp *= 1.3f;
+            }
+
+            #region getting crushed
+            if (CanCollide)
+            {
+            RaycastHit2D ray1 = Physics2D.Raycast(transform.position, transform.up, 13*transform.lossyScale.y, 2816);
+            RaycastHit2D ray2 = Physics2D.Raycast(transform.position, -transform.up, 13 * transform.lossyScale.y, 2816);
+            if (ray1 && ray2)
+            {
+                if (ray1.transform.gameObject.tag != "Beam" && ray2.transform.gameObject.tag != "Beam"
+                    && ray1.collider.isTrigger != true && ray2.collider.isTrigger != true)
+                {
+                    bool finalRun = true;
+                    if (ray1.collider.gameObject.GetComponent<AmorphousGroundTileNormal>())
+                    {
+                        if (ray1.collider.gameObject.GetComponent<AmorphousGroundTileNormal>().isHidingSomething)
+                        {
+                            finalRun = false;
+                        }
+                    }
+                    if (ray2.collider.gameObject.GetComponent<AmorphousGroundTileNormal>())
+                    {
+                        if (ray2.collider.gameObject.GetComponent<AmorphousGroundTileNormal>().isHidingSomething)
+                        {
+                            finalRun = false;
+
+                        }
+                    }
+                    if (finalRun && 
+                            (Mathf.Abs(minTransDir.magnitude) < 0.1f || Vector2.Dot(minTransDir, prevMinTransDir) < -0.5f) 
+                            && CanCollide)
+                    {
+                            kh.ChangeHealth(-Damage/2f,"crushing");
+                    }
+                }
+            }
+            #endregion
+            }
+            //insert esoteric other stuff
+            if (timesWhenMoved.Count > 0)
+            {
+                if (DoubleTime.UnscaledTimeRunning - timesWhenMoved[timesWhenMoved.Count - 1] > 0.25f)
+                {
+                    sprintCounter = 0;
+                }
+            }
+            if (System.Math.Abs(currentHorizontalVelocity) < mvSpeedTemp / 3f)
+            {
+                speedMultiplier = 1;
+            }
+
+            /* if (Input.GetButtonDown("Suicide"))
+             {
+                 kh.SetHealth(Mathf.Infinity);
+             }*/
+
+            #region electrocution
+
+            if (kh.electrocute > 0f)
+            {
+                grounded = 0;
+                doubleJump = false;
+            }
+
+            #endregion
+
+            currentHorizontalVelocity = fakePhysicsVel.x / speedMultiplier;
+
+            // this probably doesnt need checking!!?
+            /*if (GetComponent<Rigidbody2D>().constraints != RigidbodyConstraints2D.FreezeRotation)
+            {
+               GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            }*/
+
+            #region not moving logic
+            if (disabledAllControlMvt || ((encmt.currentState & 3UL) == 0UL) /*|| ((encmt.currentState & 32UL) == 32UL)*/)
+            {
+                if (grounded > 0 && audSrc.clip == walkSound && audSrc.isPlaying)
+                {
+                    audSrc.Stop();
+                }
+                wallJumpFrameCountdown = Mathf.Clamp(wallJumpFrameCountdown - 1, 0, 99);
+                if (grounded > 0)
+                {
+                    if (changeGroundedAnim)
+                    {
+                        SetAnim("Idle1");
+                    }
+                    idleCheck = (idleCheck <= 0) ? 0 : (idleCheck - 1);
+                    animator.speed = 1;
+                }
+                if (wallSliding && wallJumpFrameCountdown == 0)
+                {
+                    doubleJump = false;
+                }
+
+                if (wallJumpFrameCountdown == 0)
+                {
+                    wallSliding = false;
+                    touchingWallAndDirection = new Vector2(0, 0);
+                    maxFallSpeed = jumpHeightTemp;
+                }
+
+                
+                if (momentumMode)
+                {
+                    currentHorizontalVelocity = (momentum?1f:-1f)*(1f*mvSpeedTemp / Time.timeScale);
+                }
+                else
+                {
+                    currentHorizontalVelocity = Mathf.Lerp(currentHorizontalVelocity, 0, frictionTemp * fricMultiplier * ((grounded > 0) ? 2.5f : 0.5f));
+                }
+
+                Vector2 slippage = Vector2.zero;
+                if (grounded > 0 && Mathf.Abs(mvtAngle) > 0.13089969f)
+                {
+                    
+                    ulong contud = disabledAllControlMvt?0UL:(encmt.currentState & 12UL);
+                    float slipFric = 8f;
+                    if (contud == 4UL)
+                    {
+                        slipFric = -1f;
+                    }
+                    else if (contud == 8UL)
+                    {
+                        slipFric = 50f;
+                    }
+                    slippage += slipFric*Mathf.Tan(mvtAngle)*(Vector2)Vector3.Cross(-rampNormal, Vector3.forward);
+                }
+
+                fakePhysicsVel = new Vector2(currentHorizontalVelocity /*/ Time.timeScale*/+slippage.x, fakePhysicsVel.y+slippage.y);
+            }
+
+            //fakePhysicsVel = new Vector2(0, fakePhysicsVel.y);
+            #endregion
+
+            #region left right mvt logic
+
+            if (!disabledAllControlMvt && ((encmt.currentState & 3UL) == 2UL) /*&& ((encmt.currentState & 32UL) == 0UL)*/)
+            {
+                if (!(wallJumpFrameCountdown > 0 && touchingWallAndDirection.x == -1))
+                {
+                    if (grounded > 0)
+                    {
+                        running = true;
+                        if (System.Math.Abs(currentHorizontalVelocity) > ((mvSpeedTemp / speedMultiplier) * 1.5f) / Time.timeScale)
+                        {
+                            SetAnim("Sprint1");
+                            animator.speed = 1;
+                        }
+                        else
+                        {
+                            SetAnim("Running1");
+                            animator.speed = System.Math.Abs(encmt.horizontalPressure); /*System.Math.Abs(currentHorizontalVelocity / (mvSpeedTemp / Time.timeScale))*/;
+                        }
+                        changeGroundedAnim = true;
+                    }
+
+                    CorrectJump(false);
+
+                    WallSlider(new Vector2(1, 0));
+                    tempHMovementByte += 1;
+                    //transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+                    GetComponent<SpriteRenderer>().flipX = false;
+                    if (iced2 == 0)
+                    {
+                        if (momentumMode)
+                        {
+                            currentHorizontalVelocity = (momentum ? 1f : -1f) * (1f * mvSpeedTemp / Time.timeScale);
+                        }
+                        else
+                        {
+                            currentHorizontalVelocity = Mathf.Lerp(currentHorizontalVelocity, encmt.horizontalPressure * (mvSpeedTemp / Time.timeScale), frictionTemp * fricMultiplier);
+                        }
+                        fakePhysicsVel = new Vector2(currentHorizontalVelocity * speedMultiplier, fakePhysicsVel.y);
+                    }
+                }
+                else
+                {
+                    wallJumpFrameCountdown = Mathf.Clamp(wallJumpFrameCountdown - 1, 0, 99);
+                }
+            }
+            if (!disabledAllControlMvt && ((encmt.currentState & 3UL) == 1UL) /*&& ((encmt.currentState & 32UL) == 0UL)*/)
+            {
+                if (!(wallJumpFrameCountdown > 0 && touchingWallAndDirection.x == 1))
+                {
+                    if (grounded > 0)
+                    {
+                        running = true;
+                        if (System.Math.Abs(currentHorizontalVelocity) > ((mvSpeedTemp / speedMultiplier) * 1.5f) / Time.timeScale)
+                        {
+                            SetAnim("Sprint1");
+                            animator.speed = 1;
+                        }
+                        else
+                        {
+                            SetAnim("Running1");
+                            animator.speed = System.Math.Abs(encmt.horizontalPressure); /*System.Math.Abs(currentHorizontalVelocity / (mvSpeedTemp / Time.timeScale))*/;
+                        }
+                        changeGroundedAnim = true;
+                    }
+
+                    CorrectJump(true);
+
+                    WallSlider(new Vector2(-1, 0));
+                    tempHMovementByte += 2;
+                    GetComponent<SpriteRenderer>().flipX = true;
+                    //transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+
+                    if (iced2 == 0)
+                    {
+                        if (momentumMode)
+                        {
+                            currentHorizontalVelocity = (momentum ? 1f : -1f) * (1f * mvSpeedTemp / Time.timeScale);
+                        }
+                        else
+                        {
+                            currentHorizontalVelocity = Mathf.Lerp(currentHorizontalVelocity, encmt.horizontalPressure * (-mvSpeedTemp / Time.timeScale), frictionTemp * fricMultiplier);
+                        }
+                        fakePhysicsVel = new Vector2(currentHorizontalVelocity * speedMultiplier, fakePhysicsVel.y);
+                    }
+                }
+                else
+                {
+                    wallJumpFrameCountdown = Mathf.Clamp(wallJumpFrameCountdown - 1, 0, 99);
+                }
+        }
+
+            #endregion
+
+            //start sprint
+            if (System.Math.Abs(currentHorizontalVelocity / mvSpeedTemp)* Time.timeScale > 0.65f  && sprintCounter >= 3 && encmt.allowUserInput) //?
+            {
+                sprintCounter = 0;
+                speedMultiplier = 2;
+            }
+
+            #region start jump logic
+            if (youCanDoubleJump)
+            {
+
+                if ((movementModifier != MovementMod.Stunned) &&
+                    !disabledAllControlMvt && ((encmt.currentState & 16UL) == 16UL) && ((encmt.flags & 16UL) == 16UL) && 
+                    doubleJump && glued == 0 && zzzzzzzzzz == 0)
+                {
+                    tempHMovementByte += 4;
+                    timeJumpCool = 3;
+                    jumping = true;
+                    DestroyImmediate(sliderV);
+                    sliderV = null;
+                    /*DestroyImmediate(sliderH);
+                    sliderH = null;*/
+                    
+                    if (grounded == 0)
+                    {
+                        doubleJump = false;
+                    }
+                    if (grounded > 0)
+                    {
+                        grounded = 0;
+                        if (audSrc.isPlaying && audSrc.clip == walkSound)
+                        {
+                            audSrc.Stop();
+                        }
+                    }
+                    if (transform.parent != originalParent)
+                    {
+                        transform.parent = originalParent;
+                    }
+                    if (wallSliding)
+                    {
+                        fakePhysicsVel = new Vector2((-touchingWallAndDirection.x * 12.5f * friction * mvSpeedTemp) / Time.timeScale, ((fakePhysicsVel.y * Time.timeScale) + (jumpHeightTemp * 2)) / Time.timeScale);
+                        wallSliding = false;
+                        touchingWallAndDirection = new Vector2(0, 0);
+                        audSrc.PlayOneShot(wallPushSound);
+                        maxFallSpeed = jumpHeightTemp;
+                        timeJumpCool = 3;
+                    }
+                    if (!wallSliding)
+                    {
+                        /*if (grounded)
+                        {
+                            fakePhysicsVel = new Vector2(fakePhysicsVel.x, 0); //just being sure...
+                        }*/
+                        if (doubleJump)
+                        {
+                            fakePhysicsVel = new Vector2(fakePhysicsVel.x, /*fakePhysicsVel.y + */(jumpHeightTemp / Time.timeScale)+ ((extraPlat == null) ? 0f : (extraPlat.dif.y / Time.deltaTime)));
+                        }
+                        if (!doubleJump)
+                        {
+                            //GetComponent<ConstantForce2D>().force = Vector2.zero;
+                            fakePhysicsVel = new Vector2(fakePhysicsVel.x, jumpHeightTemp / Time.timeScale);
+                        }
+                    }
+                    extraPlat = null;
+                }
+            }
+            if (!youCanDoubleJump && (movementModifier != MovementMod.Stunned) && !disabledAllControlMvt)
+            {
+                if (  ((encmt.currentState & 16UL) == 16UL) && ((encmt.flags & 16UL) == 16UL) && grounded > 0 && zzzzzzzzzz == 0)
+                {
+                    tempHMovementByte += 4;
+                    jumpAnimGrace = 0;
+                    timeJumpCool = 3;
+                    jumping = true;
+                    DestroyImmediate(sliderV);
+                    sliderV = null;
+                    /*DestroyImmediate(sliderH);
+                    sliderH = null;*/
+                    
+                    if (grounded == 0)
+                    {
+                        doubleJump = false;
+                    }
+                    if (grounded > 0)
+                    {
+                        grounded = 0;
+                        if (audSrc.isPlaying && audSrc.clip == walkSound)
+                        {
+                            audSrc.Stop();
+                        }
+                    }
+                    fakePhysicsVel = new Vector2(fakePhysicsVel.x, (jumpHeightTemp / Time.timeScale) + ((extraPlat == null) ? 0f : (extraPlat.dif.y / Time.deltaTime)));
+                    extraPlat = null;
+                }
+            }
+            #endregion
+
+            #region extra swimming mvts
+            if (!disabledAllControlMvt && ((encmt.currentState & 20UL) != 0UL))
+            {
+                if (wasSwimming)
+                {    
+                    float newVertVelocity = Mathf.Lerp(fakePhysicsVel.y, moveSpeed, frictionTemp*fricMultiplier);
+                    fakePhysicsVel = new Vector2(fakePhysicsVel.x, newVertVelocity);
+                }
+            }
+                if (!disabledAllControlMvt && ((encmt.currentState & 8UL) == 8UL) )
+            {
+                if (wasSwimming)
+                {
+                    float newVertVelocity = Mathf.Lerp(fakePhysicsVel.y, /*Mathf.Min(-maxFallSpeed,*/( -moveSpeed), frictionTemp*fricMultiplier);
+                    fakePhysicsVel = new Vector2(fakePhysicsVel.x, newVertVelocity);
+                }
+                /*
+                if (fakePhysicsVel.y > (-jumpHeightTemp / 2) / Time.timeScale)
+                {
+                    fakePhysicsVel = new Vector2(fakePhysicsVel.x, (-jumpHeightTemp / 2) / Time.timeScale);
+                }*/
+            }
+            #endregion
+
+            #region fake gravity
+
+            if (grounded > 0 && !disabledAllControlMvt && ((encmt.currentState & 16UL) != 16UL))
+            {
+                //float yy = (extraPlat == null)?0f:extraPlat.GetComponent<Rigidbody2D>().velocity.y;
+                //fakePhysicsVel = new Vector2(fakePhysicsVel.x, (extraPlat== null)?0f:(yy+Mathf.Min(3f*yy,0f)));
+                fakePhysicsVel = new Vector2(fakePhysicsVel.x, Mathf.Min(fakePhysicsVel.x * Mathf.Tan(mvtAngle), 0));
+            }
+            if (udm > 0 && grounded > 0 && !wasSwimming)
+            {
+                fakePhysicsVel = new Vector2(fakePhysicsVel.x, 24);
+            }
+            if (!disabledAllControlMvt && (((encmt.currentState & 16UL) != 16UL) && ((encmt.currentState & 4UL) != 4UL) && fakePhysicsVel.y > 0 && !wasSwimming && udm == 0)  /*|| GetComponent<ConstantForce2D>().force.magnitude > 1*/)
+            {
+                //fakePhysicsVel += Vector2.up * 3f * Physics2D.gravity.y / Time.timeScale;
+                fakePhysicsVel += Vector2.up * gMulTemp * 2.1f * Physics2D.gravity.y / Time.timeScale;
+            }
+            if (!disabledAllControlMvt && ((encmt.currentState & 8UL) == 8UL) && !wasSwimming && udm == 0 && grounded == 0)
+            {
+                fakePhysicsVel += Vector2.down * gMulTemp * ((Physics2D.gravity.y >= 0f) ? 12f : 30f) / Time.timeScale;
+            }
+            else if (!wasSwimming && udm == 0 && extraPlat == null && !(Physics2D.gravity.y > 0f && (encmt.currentState & 12UL) == 8UL))
+            {
+                fakePhysicsVel += Vector2.up * gMulTemp * Physics2D.gravity.y / Time.timeScale;
+                fakePhysicsVel += Vector2.right * gMulTemp * Physics2D.gravity.x / Time.timeScale;
+            }
+
+            rig.gravityScale = 0f/*50 * gravMultiplier / (Time.timeScale * Time.timeScale)*/;
+            #endregion
+
+            /*if (fakePhysicsVel.y > maxFallSpeed / Time.timeScale) //faster than top velocity
+            {
+               fakePhysicsVel = new Vector2(fakePhysicsVel.x, fakePhysicsVel.y*( Mathf.Pow(((maxFallSpeed / Time.timeScale)/(fakePhysicsVel.y / Time.timeScale)),0.18f)));
+            }*/
+            /*if (((encmt.currentState & 3UL) == 3UL) && grounded && !falling) //it never equals 3UL. that's not how the input script works.
+            {
+                running = false;
+                //}
+
+                if (iced2 == 0)
+                {
+                    currentHorizontalVelocity = Mathf.Lerp(currentHorizontalVelocity, 0, frictionTemp * fricMultiplier * 2.5f);
+                    fakePhysicsVel = new Vector2(currentHorizontalVelocity, fakePhysicsVel.y);
+                }
+            }*/
+
+            //this line is BAD.
+            fakePhysicsVel = new Vector2((System.Math.Abs(fakePhysicsVel.x)<2f)?0f:fakePhysicsVel.x, 
+                Mathf.Clamp(fakePhysicsVel.y, 
+                (udm > 0)? (-4f*maxFallSpeed / Time.timeScale) : (/*((Physics2D.gravity.y < 0f) ? 1f : 4f) */ -maxFallSpeed / Time.timeScale), 
+                (wallSliding || timeJumpCool > 0)?1600f:((Physics2D.gravity.y < 0f)?4f:1f)*maxFallSpeed / Time.timeScale));
+
+            bool ohNo = true;
+            //float sloper = fakePhysicsVel.x * Mathf.Tan(mvtAngle);
+            /*if (fakePhysicsVel.y < ((sloper < 0)?sloper:0) + (2f* gMulTemp * Physics2D.gravity.y / Time.timeScale) && extraPlat == null)
+            {
+                falling = true;
+                grounded = false;
+                ohNo = false;
+            }
+            else
+            {
+                GetComponent<Animator>().enabled = true;
+            }*/
+
+            if (rig.velocity.SqrMagnitude() > 900f || fakePhysicsVel.SqrMagnitude() > 900f || (encmt.currentState & 1023UL) != 0UL)
+            {
+                idleCheck = idleCheckFrames;
+            }
+
+            if (System.Math.Abs(fakePhysicsVel.x) < 10 && grounded > 0)
+            {
+                running = false;
+            }
+
+            glued = Mathf.Max(glued - 1, 0);
+            iced2 = Mathf.Max(iced2 - 1, 0);
+            udm = Mathf.Max(udm - 1, 0);
+            if (ohNo)
+            {
+                //GetComponent<Animator>().SetBool("Running", running);
+                //GetComponent<Animator>().SetBool("Jumping", jumping);
+            }
+
+            if (grounded == 0)
+            {
+                midairRush.volume = (rig.velocity.magnitude / (maxFallSpeed * 2f));
+            }
+            else
+            {
+                midairRush.volume = 0.01f;
+            }
+
+            #region electrocution2
+
+            if (kh.electrocute > 0f)
+            {
+                fakePhysicsVel = Vector2.zero;
+                grounded = 0;
+                doubleJump = false;
+                SpriteRenderer sr = GetComponent<SpriteRenderer>();
+                sr.material = ElectrocutionMaterial;
+                if (electroSpriteChange <= 0)
+                {
+                    electroSpriteCurrent = Fakerand.Int(0, electrocutedSprites.Length);
+                    electroSpriteChange = 3;
+                }
+                sr.sprite = electrocutedSprites[electroSpriteCurrent];
+                electroSpriteChange--;
+            }
+            else
+            {
+                electroSpriteChange = 0;
+                //nothing yet, stop the electro sound once it is added
+            }
+
+            #endregion
+
+            //if (extraPlat)
+            //print(extraPlat.dif);
+            Vector2 rigVelTemp = (fakePhysicsVel) + (extraPlat ? (Vector2)extraPlat.transform.TransformDirection(new Vector3(extraPlat.dif.x * 60f, 0f)) : Vector2.zero);
+            if (allowRotation)
+            {
+                rigVelTemp = RotateVector2(rigVelTemp);
+            }
+
+            rig.velocity = (extraPerFrameVel) + new Vector2(rigVelTemp.x * transform.lossyScale.x, rigVelTemp.y * transform.lossyScale.y);
+
+
+            kh.overheat = Mathf.Clamp01(kh.overheat-((rig.velocity.magnitude) * 0.000016f)); // can we move this?
+
+            if (iced != 0)
+            {
+                if (!outsideIceSound.isPlaying)
+                {
+                    outsideIceSound.Play();
+                }
+                fakePhysicsVel = new Vector2(iced, fakePhysicsVel.y);
+            }
+            if (iced != 0 && iced2 == 0)
+            {
+                    outsideIceSound.Stop();
+                iced = 0;
+            }
+            if (storedHMvtByte != tempHMovementByte)
+            {
+                OnChangeOfHorizMovement(tempHMovementByte);
+            }
+            storedHMvtByte = tempHMovementByte;
+            //GetComponent<ConstantForce2D>().force = Vector2.zero;
+
+            //punching behavior
+            bool flippedMan = mySprRend.flipX;
+
+            //ulong[] buttons = encmt.eventsTable.Values.ToArray();
+            double buttonTime = encmt.eventsTable[encmt.eventsTable.Count - 1].Item1;
+            if ((movementModifier != MovementMod.Stunned) && !disabledAllControlMvt && kh.electrocute == 0f 
+                && (encmt.currentState & 64UL) == 64UL && (encmt.flags & 79UL) != 0UL && DoubleTime.ScaledTimeSinceLoad - buttonTime < 0.1f*Time.timeScale
+                && !(cct && cct.isAiming))
+            {
+                if ((encmt.currentState & 79UL) == (flippedMan ? 69UL : 70UL)) // ^ + > + X : top right punch
+                {
+                    SetAnim("PunchUpRight");
+                }
+
+                if ((encmt.currentState & 79UL) == (flippedMan ? 73UL : 74UL)) // > + v + X : bottom right kick
+                {
+                    SetAnim("KickDownRight");
+                }
+
+                //be careful of ghosting!!!
+            }
+
+            AnimatorStateInfo asi = animator.GetCurrentAnimatorStateInfo(0);
+            float meleeOffset = 12f;
+            punchRBox.enabled = (asi.IsName("PunchUpRight") && asi.normalizedTime >= 0.33333f);
+            punchRBox.offset = new Vector2(meleeOffset * (flippedMan ? -1f : 1f), punchRBox.offset.y);
+            kickRBox.enabled = (asi.IsName("KickDownRight") && asi.normalizedTime >= 0.33333f);
+            kickRBox.offset = new Vector2(meleeOffset * (flippedMan ? -1f : 1f), kickRBox.offset.y);
+            if (asi.IsName("PunchUpRight"))
+            {
+                if (!punchWhoosh.isPlaying)
+                {
+                    float np = (movementModifier == MovementMod.None) ? 1f : ((movementModifier == MovementMod.Tired) ? 0.5f : 2f);
+
+                    if (punchWhoosh.pitch != np)
+                    {
+                        punchWhoosh.pitch = np;
+                    }
+                    punchWhoosh.Play();
+                }
+                animator.speed = 1f;
+            }
+            if (asi.IsName("KickDownRight"))
+            {
+                if (!kickWhoosh.isPlaying)
+                {
+                    float np = (movementModifier == MovementMod.None) ? 1f : ((movementModifier == MovementMod.Tired) ? 0.5f : 2f);
+
+                    if (kickWhoosh.pitch != np)
+                    {
+                        kickWhoosh.pitch = np;
+                    }
+                    kickWhoosh.Play();
+                }
+                animator.speed = 1f;
+            }
+            if (asi.IsName("KhalHurt"))
+            {
+                animator.speed = 1f;
+            }
+
+            if (idleCheck == 0)
+            {
+                if (asi.IsName("Idle2") || Fakerand.Single() < 0.1f) //succeed: idle
+                {
+                    SetAnim("Idle2");
+                }
+                else
+                {
+                    idleCheck = idleCheckFrames;
+                }
+            }
+
+        }
+
+
+        #region sound filters
+        //don't need to check every frame! fix this later
+        if (movementModifier == MovementMod.High)
+        {
+            GetComponent<Animator>().speed *= 2f;
+            plrSFX.SetFloat("FlangeWet", 1f);
+            plrSFX.SetFloat("FlangeDry", 0f);
+        }
+        else if (movementModifier == MovementMod.Tired)
+        {
+            GetComponent<Animator>().speed *= 0.5f;
+            plrSFX.SetFloat("FlangeWet", 0f);
+            plrSFX.SetFloat("FlangeDry", 1f);
+        }
+        else if (movementModifier == MovementMod.Stunned)
+        {
+            GetComponent<Animator>().speed = 0f;
+            plrSFX.SetFloat("FlangeWet", 0f);
+            plrSFX.SetFloat("FlangeDry", 1f);
+        }
+        else
+        {
+            plrSFX.SetFloat("FlangeWet", 0f);
+            plrSFX.SetFloat("FlangeDry", 1f);
+        }
+        #endregion
+        /*if (extraPlat)
+        {
+            print(extraPlat.GetComponent<Rigidbody2D>().velocity);
+
+        }*/
+
+        if (grounded == 0 && audSrc.isPlaying && audSrc.clip == walkSound)
+        {
+            audSrc.Stop();
+        }
+
+        #region momentum mode
+        if (momentumMode)
+        {
+            momentumParticle.gameObject.SetActive(true);
+            if (momentum)
+            {
+                momentumParticle.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                momentumParticle.localScale = new Vector3(-1, 1, 1);
+            }
+
+            if (!momentumAmbient.isPlaying)
+            {
+                momentumAmbient.Play();
+            }
+        }
+        else
+        {
+            momentumParticle.gameObject.SetActive(false);
+            if (momentumAmbient.isPlaying)
+            {
+                momentumAmbient.Stop();
+            }
+        }
+        #endregion
+
+        --CCLossDelay;
+        if (CCLossDelay < 0) { CCLossDelay = 0; }
+        if (CCLossDelay == 0) { CanCollide = true; }
+
+        --spikeTouchCooldown;
+        if (spikeTouchCooldown < 0) { spikeTouchCooldown = 0; }
+
+        prevTimeScale = Time.timeScale;
+        extraPerFrameVel = Vector2.zero;
+        movingBlocksThisFrame.Clear();
+        if (!allowRotation) { transform.rotation = Quaternion.identity; }
+        //transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+        /*if (transform.localScale != Vector3.zero)
+        {
+            transform.localScale = Vector3.one;
+        }*/
+        prevMinTransDir = minTransDir;
+        minTransDir = Vector2.zero;
+    }
+
+}

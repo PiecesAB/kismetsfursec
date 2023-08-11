@@ -1,0 +1,12 @@
+"MasterVolume"
+This multiplies all sound group volumes.
+type: int
+default: 10
+range: [0,2147483647]
+--------------------------------
+"ArbitVolLimit"
+Turns to 0 when the cheat-code "up to eleven" is entered. When it equals 1, all volumes must be [0,10].
+type: int
+deafult: 1
+range: [0,1]
+--------------------------------

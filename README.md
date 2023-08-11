@@ -1,0 +1,1 @@
+Nobody cared about this project when the demo came out, so now I don't either. Here's the source so you can see how horrible the codebase is and all the levels that will never be, and there are probably a few stolen test assets why not. It's all worthless to me now. Enjoy!

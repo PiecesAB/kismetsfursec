@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+	<asset>
+		<contributor>
+			<authoring_tool>Qubism 0.9.4+</authoring_tool>
+		</contributor>
+		<created>Fri Jul 21 12:12:22 PDT 2017</created>
+		<modified>Fri Jul 21 12:12:22 PDT 2017</modified>
+		<modified>Fri Jul 21 12:12:22 PDT 2017</modified>
+	</asset>
+	<library_geometries>
+		<geometry id="tri_0_geometry">
+			<mesh>
+				<source id="tri_0_positions">
+					<float_array id="tri_0_position_array" count="36">0.0 128.0 128.0 128.0 128.0 128.0 128.0 256.0 128.0 0.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 256.0 128.0 128.0 256.0 128.0 256.0 128.0 128.0 128.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 0.0 128.0 128.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_0_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_0_normals">
+					<float_array id="tri_0_normal_array" count="36">0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 -1.0 -0.0 0.0 -1.0 -0.0 0.0 -1.0 -0.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_0_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_0_vertex">
+					<input semantic="POSITION" source="#tri_0_positions" />
+					<input semantic="NORMAL" source="#tri_0_normals" />
+				</vertices>
+				<triangles count="4" material="mat_ff0080ff">
+					<input offset="0" semantic="VERTEX" source="#tri_0_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="tri_12_geometry">
+			<mesh>
+				<source id="tri_12_positions">
+					<float_array id="tri_12_position_array" count="36">128.0 0.0 128.0 0.0 128.0 128.0 128.0 128.0 256.0 0.0 128.0 128.0 128.0 128.0 128.0 128.0 128.0 256.0 128.0 128.0 256.0 128.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 0.0 128.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_12_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_12_normals">
+					<float_array id="tri_12_normal_array" count="36">-0.5773503 -0.5773503 0.5773503 -0.5773503 -0.5773503 0.5773503 -0.5773503 -0.5773503 0.5773503 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 -0.0 -0.0 -1.0 -0.0 -0.0 -1.0 -0.0 -0.0 -1.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_12_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_12_vertex">
+					<input semantic="POSITION" source="#tri_12_positions" />
+					<input semantic="NORMAL" source="#tri_12_normals" />
+				</vertices>
+				<triangles count="4" material="mat_ff00c0ff">
+					<input offset="0" semantic="VERTEX" source="#tri_12_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="tri_24_geometry">
+			<mesh>
+				<source id="tri_24_positions">
+					<float_array id="tri_24_position_array" count="36">128.0 128.0 0.0 128.0 0.0 128.0 128.0 128.0 128.0 128.0 0.0 128.0 0.0 128.0 128.0 128.0 128.0 128.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 128.0 0.0 0.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 0.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_24_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_24_normals">
+					<float_array id="tri_24_normal_array" count="36">1.0 0.0 -0.0 1.0 0.0 -0.0 1.0 0.0 -0.0 0.0 -0.0 1.0 0.0 -0.0 1.0 0.0 -0.0 1.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_24_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_24_vertex">
+					<input semantic="POSITION" source="#tri_24_positions" />
+					<input semantic="NORMAL" source="#tri_24_normals" />
+				</vertices>
+				<triangles count="4" material="mat_ff0080ff">
+					<input offset="0" semantic="VERTEX" source="#tri_24_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="tri_36_geometry">
+			<mesh>
+				<source id="tri_36_positions">
+					<float_array id="tri_36_position_array" count="36">128.0 128.0 0.0 0.0 128.0 128.0 128.0 128.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 128.0 256.0 128.0 128.0 256.0 128.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 256.0 128.0 0.0 128.0 128.0 128.0 128.0 0.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_36_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_36_normals">
+					<float_array id="tri_36_normal_array" count="36">0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 -0.5773503 0.5773503 -0.5773503 -0.5773503 0.5773503 -0.5773503 -0.5773503 0.5773503 -0.5773503</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_36_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_36_vertex">
+					<input semantic="POSITION" source="#tri_36_positions" />
+					<input semantic="NORMAL" source="#tri_36_normals" />
+				</vertices>
+				<triangles count="4" material="mat_ff0040ff">
+					<input offset="0" semantic="VERTEX" source="#tri_36_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="tri_48_geometry">
+			<mesh>
+				<source id="tri_48_positions">
+					<float_array id="tri_48_position_array" count="72">128.0 128.0 0.0 128.0 0.0 128.0 256.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 128.0 256.0 128.0 128.0 256.0 128.0 128.0 128.0 128.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 0.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 256.0 128.0 128.0 256.0 128.0 256.0 128.0 256.0 128.0 128.0 128.0 128.0 256.0 256.0 128.0 128.0 128.0 128.0 128.0</float_array>
+					<technique_common>
+						<accessor count="24" source="#tri_48_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_48_normals">
+					<float_array id="tri_48_normal_array" count="72">0.5773503 -0.5773503 -0.5773503 0.5773503 -0.5773503 -0.5773503 0.5773503 -0.5773503 -0.5773503 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 -1.0 -0.0 -0.0 -1.0 -0.0 -0.0 -1.0 -0.0 -0.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 0.5773503 0.5773503 0.5773503 0.5773503 0.5773503 0.5773503 0.5773503 0.5773503 0.5773503 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0</float_array>
+					<technique_common>
+						<accessor count="24" source="#tri_48_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_48_vertex">
+					<input semantic="POSITION" source="#tri_48_positions" />
+					<input semantic="NORMAL" source="#tri_48_normals" />
+				</vertices>
+				<triangles count="8" material="mat_ff00c0ff">
+					<input offset="0" semantic="VERTEX" source="#tri_48_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9 14 13 12 17 16 15 20 19 18 23 22 21</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="tri_72_geometry">
+			<mesh>
+				<source id="tri_72_positions">
+					<float_array id="tri_72_position_array" count="36">128.0 128.0 0.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 128.0 0.0 256.0 128.0 128.0 128.0 256.0 128.0 128.0 256.0 128.0 256.0 128.0 128.0 128.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 128.0 128.0 128.0 0.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_72_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_72_normals">
+					<float_array id="tri_72_normal_array" count="36">0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 -1.0 -0.0 0.0 -1.0 -0.0 0.0 -1.0 -0.0 0.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_72_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_72_vertex">
+					<input semantic="POSITION" source="#tri_72_positions" />
+					<input semantic="NORMAL" source="#tri_72_normals" />
+				</vertices>
+				<triangles count="4" material="mat_ff0080ff">
+					<input offset="0" semantic="VERTEX" source="#tri_72_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="tri_84_geometry">
+			<mesh>
+				<source id="tri_84_positions">
+					<float_array id="tri_84_position_array" count="36">128.0 0.0 128.0 128.0 128.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 256.0 128.0 128.0 128.0 128.0 256.0 128.0 128.0 256.0 256.0 128.0 128.0 128.0 0.0 128.0 256.0 128.0 128.0 128.0 128.0 128.0 128.0 0.0 128.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_84_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_84_normals">
+					<float_array id="tri_84_normal_array" count="36">-1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 -0.0 0.0 -1.0 -0.0 0.0 -1.0 -0.0 0.0 -1.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_84_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_84_vertex">
+					<input semantic="POSITION" source="#tri_84_positions" />
+					<input semantic="NORMAL" source="#tri_84_normals" />
+				</vertices>
+				<triangles count="4" material="mat_ff00ffff">
+					<input offset="0" semantic="VERTEX" source="#tri_84_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_materials>
+		<material id="lmat_ff0080ff">
+			<instance_effect url="#effect_ff0080ff" />
+		</material>
+		<material id="lmat_ff00ffff">
+			<instance_effect url="#effect_ff00ffff" />
+		</material>
+		<material id="lmat_ff0040ff">
+			<instance_effect url="#effect_ff0040ff" />
+		</material>
+		<material id="lmat_ff00c0ff">
+			<instance_effect url="#effect_ff00c0ff" />
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="effect_ff0080ff">
+			<profile_COMMON>
+				<technique sid="COMMON">
+					<lambert>
+						<diffuse>
+							<color>0.0 0.5019608 1.0 1.0</color>
+						</diffuse>
+					</lambert>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="effect_ff00ffff">
+			<profile_COMMON>
+				<technique sid="COMMON">
+					<lambert>
+						<diffuse>
+							<color>0.0 1.0 1.0 1.0</color>
+						</diffuse>
+					</lambert>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="effect_ff0040ff">
+			<profile_COMMON>
+				<technique sid="COMMON">
+					<lambert>
+						<diffuse>
+							<color>0.0 0.2509804 1.0 1.0</color>
+						</diffuse>
+					</lambert>
+				</technique>
+			</profile_COMMON>
+		</effect>
+		<effect id="effect_ff00c0ff">
+			<profile_COMMON>
+				<technique sid="COMMON">
+					<lambert>
+						<diffuse>
+							<color>0.0 0.7529412 1.0 1.0</color>
+						</diffuse>
+					</lambert>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_visual_scenes>
+		<visual_scene id="the_scene">
+			<node name="the_node">
+				<instance_geometry url="#tri_0_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_ff0080ff" target="#lmat_ff0080ff">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#tri_12_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_ff00c0ff" target="#lmat_ff00c0ff">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#tri_24_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_ff0080ff" target="#lmat_ff0080ff">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#tri_36_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_ff0040ff" target="#lmat_ff0040ff">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#tri_48_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_ff00c0ff" target="#lmat_ff00c0ff">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#tri_72_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_ff0080ff" target="#lmat_ff0080ff">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+				<instance_geometry url="#tri_84_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_ff00ffff" target="#lmat_ff00ffff">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#the_scene" />
+	</scene>
+</COLLADA>

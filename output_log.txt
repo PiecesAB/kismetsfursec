@@ -1,0 +1,2 @@
+There should be 'KSMtest4-1-2018_Data'
+folder next to the executable

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 459c818e9eb50a245af5d44aac85f89a
+timeCreated: 1533503067
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 3
+  fontSize: 10
+  forceTextureCase: -1
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  fontNames:
+  - no moral smol 1.1
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

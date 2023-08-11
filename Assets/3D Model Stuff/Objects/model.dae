@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+	<asset>
+		<contributor>
+			<authoring_tool>Qubism 0.9.4+</authoring_tool>
+		</contributor>
+		<created>Fri Jul 21 12:11:51 PDT 2017</created>
+		<modified>Fri Jul 21 12:11:51 PDT 2017</modified>
+		<modified>Fri Jul 21 12:11:51 PDT 2017</modified>
+	</asset>
+	<library_geometries>
+		<geometry id="tri_0_geometry">
+			<mesh>
+				<source id="tri_0_positions">
+					<float_array id="tri_0_position_array" count="108">0.0 0.0 0.0 256.0 0.0 0.0 256.0 256.0 0.0 256.0 256.0 0.0 0.0 256.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 256.0 0.0 0.0 256.0 256.0 0.0 256.0 256.0 0.0 0.0 256.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 256.0 256.0 0.0 256.0 256.0 0.0 256.0 256.0 0.0 0.0 0.0 0.0 0.0 256.0 0.0 0.0 256.0 0.0 256.0 256.0 256.0 256.0 256.0 256.0 256.0 256.0 256.0 0.0 256.0 0.0 0.0 0.0 256.0 0.0 256.0 256.0 0.0 256.0 256.0 256.0 256.0 256.0 256.0 0.0 256.0 256.0 0.0 256.0 0.0 0.0 0.0 256.0 0.0 256.0 256.0 256.0 256.0 256.0 256.0 256.0 256.0 256.0 0.0 256.0 0.0 0.0 256.0</float_array>
+					<technique_common>
+						<accessor count="36" source="#tri_0_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_0_normals">
+					<float_array id="tri_0_normal_array" count="108">0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 0.0 -1.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 0.0 1.0</float_array>
+					<technique_common>
+						<accessor count="36" source="#tri_0_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_0_vertex">
+					<input semantic="POSITION" source="#tri_0_positions" />
+					<input semantic="NORMAL" source="#tri_0_normals" />
+				</vertices>
+				<triangles count="12" material="mat_ffa873de">
+					<input offset="0" semantic="VERTEX" source="#tri_0_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9 14 13 12 17 16 15 20 19 18 23 22 21 26 25 24 29 28 27 32 31 30 35 34 33</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_materials>
+		<material id="lmat_ffa873de">
+			<instance_effect url="#effect_ffa873de" />
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="effect_ffa873de">
+			<profile_COMMON>
+				<technique sid="COMMON">
+					<lambert>
+						<diffuse>
+							<color>0.65882355 0.4509804 0.87058824 1.0</color>
+						</diffuse>
+					</lambert>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_visual_scenes>
+		<visual_scene id="the_scene">
+			<node name="the_node">
+				<instance_geometry url="#tri_0_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_ffa873de" target="#lmat_ffa873de">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#the_scene" />
+	</scene>
+</COLLADA>

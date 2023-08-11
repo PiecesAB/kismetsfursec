@@ -1,0 +1,165 @@
+Mono path[0] = 'C:/Users/zonkm/Downloads/UNity/Test2D/KismetTesting_Data/Managed'
+Mono path[1] = 'C:/Users/zonkm/Downloads/UNity/Test2D/KismetTesting_Data/Mono'
+Mono config path = 'C:/Users/zonkm/Downloads/UNity/Test2D/KismetTesting_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/zonkm/Downloads/UNity/Test2D/KismetTesting_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55067
+Multi-casting "[IP] 192.168.1.76 [Port] 55067 [Flags] 2 [Guid] 2211811764 [EditorId] 1282458906 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-TO7JRIH) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.76:55067]
+Initialize engine version: 5.3.5f1 (960ebf59018a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon(TM) R7 Graphics (ID=0x130f)
+    Vendor:   ATI
+    VRAM:     992 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.249 seconds
+Platform assembly: C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\zonkm\Downloads\UNity\Test2D\KismetTesting_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.238129 ms
+BestFit is only supported for dynamic fonts.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.TextGenerator:ValidatedSettings(TextGenerationSettings) (at C:\buildslave\unity\build\Runtime\TextRendering\Managed\TextGenerator.cs:145)
+UnityEngine.TextGenerator:PopulateAlways(String, TextGenerationSettings) (at C:\buildslave\unity\build\Runtime\TextRendering\Managed\TextGenerator.cs:226)
+UnityEngine.TextGenerator:Populate(String, TextGenerationSettings) (at C:\buildslave\unity\build\Runtime\TextRendering\Managed\TextGenerator.cs:214)
+UnityEngine.UI.Text:OnPopulateMesh(VertexHelper) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Text.cs:454)
+UnityEngine.UI.Graphic:DoMeshGeneration() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Graphic.cs:384)
+UnityEngine.UI.Graphic:UpdateGeometry() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Graphic.cs:378)
+UnityEngine.UI.Text:UpdateGeometry() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Text.cs:381)
+UnityEngine.UI.Graphic:Rebuild(CanvasUpdate) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Graphic.cs:338)
+UnityEngine.UI.CanvasUpdateRegistry:PerformUpdate() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\CanvasUpdateRegistry.cs:149)
+UnityEngine.Canvas:SendWillRenderCanvases() (at C:\buildslave\unity\build\artifacts\generated\common\modules\UI\UICanvasBindings.gen.cs:195)
+ 
+(Filename: C:/buildslave/unity/build/Runtime/TextRendering/Managed/TextGenerator.cs Line: 145)
+
+BestFit is only supported for dynamic fonts.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+UnityEngine.TextGenerator:ValidatedSettings(TextGenerationSettings) (at C:\buildslave\unity\build\Runtime\TextRendering\Managed\TextGenerator.cs:145)
+UnityEngine.TextGenerator:PopulateAlways(String, TextGenerationSettings) (at C:\buildslave\unity\build\Runtime\TextRendering\Managed\TextGenerator.cs:226)
+UnityEngine.TextGenerator:Populate(String, TextGenerationSettings) (at C:\buildslave\unity\build\Runtime\TextRendering\Managed\TextGenerator.cs:214)
+UnityEngine.UI.Text:OnPopulateMesh(VertexHelper) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Text.cs:454)
+UnityEngine.UI.Graphic:DoMeshGeneration() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Graphic.cs:384)
+UnityEngine.UI.Graphic:UpdateGeometry() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Graphic.cs:378)
+UnityEngine.UI.Text:UpdateGeometry() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Text.cs:381)
+UnityEngine.UI.Graphic:Rebuild(CanvasUpdate) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Graphic.cs:338)
+UnityEngine.UI.CanvasUpdateRegistry:PerformUpdate() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\CanvasUpdateRegistry.cs:149)
+UnityEngine.Canvas:SendWillRenderCanvases() (at C:\buildslave\unity\build\artifacts\generated\common\modules\UI\UICanvasBindings.gen.cs:195)
+ 
+(Filename: C:/buildslave/unity/build/Runtime/TextRendering/Managed/TextGenerator.cs Line: 145)
+
+Font size and style overrides are only supported for dynamic fonts.
+UnityEngine.GameObject:SetActive(Boolean)
+PauseMenuMain:Open() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\PauseMenuMain.cs:47)
+PauseMenuMain:Update() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\PauseMenuMain.cs:145)
+
+[C:/buildslave/unity/build/Runtime/TextRendering/TextMeshGenerator.cpp line 94] 
+(Filename: C:/Users/zonkm/Downloads/UNity/Test2D/Assets/PauseMenuMain.cs Line: 47)
+
+Font size and style overrides are only supported for dynamic fonts.
+UnityEngine.TextMesh:set_text(String)
+PauseMenuMain:RedrawMenu() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\PauseMenuMain.cs:92)
+PauseMenuMain:Update() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\PauseMenuMain.cs:141)
+
+[C:/buildslave/unity/build/Runtime/TextRendering/TextMeshGenerator.cpp line 94] 
+(Filename: C:/Users/zonkm/Downloads/UNity/Test2D/Assets/PauseMenuMain.cs Line: 92)
+
+Font size and style overrides are only supported for dynamic fonts.
+UnityEngine.TextMesh:set_text(String)
+PauseMenuMain:RedrawMenu() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\PauseMenuMain.cs:92)
+PauseMenuMain:Update() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\PauseMenuMain.cs:141)
+
+[C:/buildslave/unity/build/Runtime/TextRendering/TextMeshGenerator.cpp line 94] 
+(Filename: C:/Users/zonkm/Downloads/UNity/Test2D/Assets/PauseMenuMain.cs Line: 92)
+
+(0.0, 1.0)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<Scroll>c__Iterator13:MoveNext() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\FollowThePlayer.cs:119)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+FollowThePlayer:LateUpdate() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\FollowThePlayer.cs:204)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+(0.0, -1.0)
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<Scroll>c__Iterator13:MoveNext() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\FollowThePlayer.cs:119)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+FollowThePlayer:LateUpdate() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\FollowThePlayer.cs:204)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+DynamicHeapAllocator allocation probe 1 failed - Could not get memory for large allocation 196624.
+DynamicHeapAllocator allocation probe 2 failed - Could not get memory for large allocation 196624.
+DynamicHeapAllocator allocation probe 3 failed - Could not get memory for large allocation 196624.
+DynamicHeapAllocator allocation probe 4 failed - Could not get memory for large allocation 196624.
+DynamicHeapAllocator out of memory - Could not get memory for large allocation 196624!
+Could not allocate memory: System out of memory!
+Trying to allocate: 196624B with 32 alignment. MemoryLabel: VertexData
+Allocation happend at: Line:91 in C:/buildslave/unity/build/Runtime/Graphics/Mesh/VertexData.cpp
+Memory overview
+
+[ ALLOC_DEFAULT ] used: 27655896B | peak: 0B | reserved: 36940968B 
+[ ALLOC_TEMP_JOB ] used: 0B | peak: 0B | reserved: 2097152B 
+[ ALLOC_GFX ] used: 2842254440B | peak: 0B | reserved: 3715711328B 
+[ ALLOC_CACHEOBJECTS ] used: 160584B | peak: 0B | reserved: 10485760B 
+[ ALLOC_TYPETREE ] used: 0B | peak: 0B | reserved: 0B 
+[ ALLOC_PROFILER ] used: 9404B | peak: 0B | reserved: 8388608B 
+[ ALLOC_TEMP_THREAD ] used: 30736B | peak: 0B | reserved: 2424832B 
+Could not allocate memory: System out of memory!
+Trying to allocate: 196624B with 32 alignment. MemoryLabel: VertexData
+Allocation happend at: Line:91 in C:/buildslave/unity/build/Runtime/Graphics/Mesh/VertexData.cpp
+Memory overview
+
+[ ALLOC_DEFAULT ] used: 27655896B | peak: 0B | reserved: 36940968B 
+[ ALLOC_TEMP_JOB ] used: 0B | peak: 0B | reserved: 2097152B 
+[ ALLOC_GFX ] used: 2842254440B | peak: 0B | reserved: 3715711328B 
+[ ALLOC_CACHEOBJECTS ] used: 160584B | peak: 0B | reserved: 10485760B 
+[ ALLOC_TYPETREE ] used: 0B | peak: 0B | reserved: 0B 
+[ ALLOC_PROFILER ] used: 9404B | peak: 0B | reserved: 8388608B 
+[ ALLOC_TEMP_THREAD ] used: 30736B | peak: 0B | reserved: 2424832B 
+
+UnityEngine.Mesh:RecalculateNormals()
+DanmakuMeshSample:Update() (at C:\Users\zonkm\Downloads\UNity\Test2D\Assets\DanmakuMeshSample.cs:94)
+
+[C:/buildslave/unity/build/Runtime/Allocator/MemoryManager.cpp line 1033] 
+(Filename: C:/Users/zonkm/Downloads/UNity/Test2D/Assets/DanmakuMeshSample.cs Line: 94)
+
+Crash!!!
+  ERROR: Error while initializing dbghelp.dll, GetLastError: 'The operation completed successfully.' (Address: 00000000)
+
+========== OUTPUTING STACK TRACE ==================
+
+  ERROR: Error while initializing dbghelp.dll, GetLastError: 'The operation completed successfully.' (Address: 00000000)
+
+========== END OF STACKTRACE ===========
+
+**** Crash! ****

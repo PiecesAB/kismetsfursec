@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+	<asset>
+		<contributor>
+			<authoring_tool>Qubism 0.9.4+</authoring_tool>
+		</contributor>
+		<created>Fri Jul 21 12:11:14 PDT 2017</created>
+		<modified>Fri Jul 21 12:11:14 PDT 2017</modified>
+		<modified>Fri Jul 21 12:11:14 PDT 2017</modified>
+	</asset>
+	<library_geometries>
+		<geometry id="tri_0_geometry">
+			<mesh>
+				<source id="tri_0_positions">
+					<float_array id="tri_0_position_array" count="36">256.0 0.0 0.0 0.0 256.0 0.0 0.0 0.0 256.0 256.0 0.0 0.0 0.0 0.0 256.0 256.0 256.0 256.0 256.0 256.0 256.0 0.0 0.0 256.0 0.0 256.0 0.0 256.0 256.0 256.0 0.0 256.0 0.0 256.0 0.0 0.0</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_0_position_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="tri_0_normals">
+					<float_array id="tri_0_normal_array" count="36">-0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 -0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503 0.5773503 0.5773503 -0.5773503</float_array>
+					<technique_common>
+						<accessor count="12" source="#tri_0_normal_array" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="tri_0_vertex">
+					<input semantic="POSITION" source="#tri_0_positions" />
+					<input semantic="NORMAL" source="#tri_0_normals" />
+				</vertices>
+				<triangles count="4" material="mat_fffed967">
+					<input offset="0" semantic="VERTEX" source="#tri_0_vertex" />
+					<p>2 1 0 5 4 3 8 7 6 11 10 9</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_materials>
+		<material id="lmat_fffed967">
+			<instance_effect url="#effect_fffed967" />
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="effect_fffed967">
+			<profile_COMMON>
+				<technique sid="COMMON">
+					<lambert>
+						<diffuse>
+							<color>0.99607843 0.8509804 0.40392157 1.0</color>
+						</diffuse>
+					</lambert>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_visual_scenes>
+		<visual_scene id="the_scene">
+			<node name="the_node">
+				<instance_geometry url="#tri_0_geometry">
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat_fffed967" target="#lmat_fffed967">
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_geometry>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#the_scene" />
+	</scene>
+</COLLADA>
